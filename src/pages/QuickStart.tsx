@@ -84,17 +84,17 @@ dotnet add package Kippo`;
 
 export function QuickStart() {
   return (
-    <div className="space-y-12">
+    <div className="space-y-8 sm:space-y-12">
       <div>
-        <h1 className="text-4xl font-bold text-white mb-4">Quick Start</h1>
-        <p className="text-xl text-zinc-400">
+        <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4">Quick Start</h1>
+        <p className="text-base sm:text-lg lg:text-xl text-zinc-400">
           Get your Telegram bot running in under 5 minutes with this step-by-step guide.
         </p>
       </div>
 
       {/* Prerequisites */}
-      <section className="p-6 rounded-xl border border-zinc-800 bg-zinc-900/50">
-        <h2 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+      <section className="p-4 sm:p-6 rounded-xl border border-zinc-800 bg-zinc-900/50">
+        <h2 className="text-lg sm:text-xl font-semibold text-white mb-4 flex items-center gap-2">
           <Info className="text-blue-500" size={20} />
           Prerequisites
         </h2>
@@ -120,10 +120,10 @@ export function QuickStart() {
           <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm">
             0
           </div>
-          <h2 className="text-2xl font-bold text-white">Get Your Bot Token</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-white">Get Your Bot Token</h2>
         </div>
         
-        <div className="pl-11 space-y-4">
+        <div className="pl-8 sm:pl-11 space-y-4">
           <p className="text-zinc-400">
             Before you start, you need a bot token from Telegram:
           </p>
@@ -149,10 +149,10 @@ export function QuickStart() {
           <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm">
             1
           </div>
-          <h2 className="text-2xl font-bold text-white">Create a New Project</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-white">Create a New Project</h2>
         </div>
         
-        <div className="pl-11 space-y-4">
+        <div className="pl-8 sm:pl-11 space-y-4">
           <p className="text-zinc-400">
             Create a new ASP.NET Core project and install the Kippo package:
           </p>
@@ -166,10 +166,10 @@ export function QuickStart() {
           <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm">
             2
           </div>
-          <h2 className="text-2xl font-bold text-white">Configure Your Bot Token</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-white">Configure Your Bot Token</h2>
         </div>
         
-        <div className="pl-11 space-y-4">
+        <div className="pl-8 sm:pl-11 space-y-4">
           <p className="text-zinc-400">
             Add your bot token to <code className="px-2 py-1 rounded bg-zinc-800 text-blue-400">appsettings.json</code>:
           </p>
@@ -190,16 +190,16 @@ export function QuickStart() {
           <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm">
             3
           </div>
-          <h2 className="text-2xl font-bold text-white">Create Your Bot Handler</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-white">Create Your Bot Handler</h2>
         </div>
         
-        <div className="pl-11 space-y-4">
+        <div className="pl-8 sm:pl-11 space-y-4">
           <p className="text-zinc-400">
             Create a new file <code className="px-2 py-1 rounded bg-zinc-800 text-blue-400">MyBotHandler.cs</code> with your bot logic:
           </p>
           <CodeBlock code={step2Code} language="csharp" filename="MyBotHandler.cs" />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
             <div className="p-4 rounded-lg border border-zinc-800 bg-zinc-900/50">
               <h4 className="font-semibold text-white mb-2">[Command] Attribute</h4>
               <p className="text-zinc-400 text-sm">Handles commands like /start, /help</p>
@@ -218,10 +218,10 @@ export function QuickStart() {
           <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm">
             4
           </div>
-          <h2 className="text-2xl font-bold text-white">Register Kippo in Program.cs</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-white">Register Kippo in Program.cs</h2>
         </div>
         
-        <div className="pl-11 space-y-4">
+        <div className="pl-8 sm:pl-11 space-y-4">
           <p className="text-zinc-400">
             Replace the contents of <code className="px-2 py-1 rounded bg-zinc-800 text-blue-400">Program.cs</code>:
           </p>
@@ -235,10 +235,10 @@ export function QuickStart() {
           <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm">
             5
           </div>
-          <h2 className="text-2xl font-bold text-white">Run Your Bot</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-white">Run Your Bot</h2>
         </div>
         
-        <div className="pl-11 space-y-4">
+        <div className="pl-8 sm:pl-11 space-y-4">
           <p className="text-zinc-400">
             Start your bot with:
           </p>
@@ -257,8 +257,8 @@ export function QuickStart() {
       </section>
 
       {/* Project Structure */}
-      <section className="p-6 rounded-xl border border-zinc-800 bg-zinc-900/50">
-        <h2 className="text-xl font-semibold text-white mb-4">Final Project Structure</h2>
+      <section className="p-4 sm:p-6 rounded-xl border border-zinc-800 bg-zinc-900/50">
+        <h2 className="text-lg sm:text-xl font-semibold text-white mb-4">Final Project Structure</h2>
         <CodeBlock 
           code={`MyTelegramBot/
 ├── Program.cs              # Application entry point
@@ -270,12 +270,12 @@ export function QuickStart() {
       </section>
 
       {/* Next Steps */}
-      <section className="p-8 rounded-xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20">
-        <h2 className="text-2xl font-bold text-white mb-4">What's Next?</h2>
+      <section className="p-4 sm:p-6 lg:p-8 rounded-xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20">
+        <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">What's Next?</h2>
         <p className="text-zinc-300 mb-6">
           Now that your bot is running, explore more features:
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           <Link
             to="/routing"
             className="flex items-center justify-between p-4 rounded-lg bg-zinc-800/50 hover:bg-zinc-800 border border-zinc-700 transition-colors group"

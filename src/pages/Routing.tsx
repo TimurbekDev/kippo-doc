@@ -86,19 +86,19 @@ public async Task Cancel(Context context)
 
 export function Routing() {
   return (
-    <div className="space-y-12">
+    <div className="space-y-8 sm:space-y-12">
       <div>
-        <h1 className="text-4xl font-bold text-white mb-4">Routing</h1>
-        <p className="text-xl text-zinc-400">
+        <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4">Routing</h1>
+        <p className="text-base sm:text-lg lg:text-xl text-zinc-400">
           Kippo uses attributes to route Telegram updates to your handler methods. 
           No complex configuration needed - just decorate your methods.
         </p>
       </div>
 
       {/* Overview */}
-      <section className="p-6 rounded-xl border border-zinc-800 bg-zinc-900/50">
-        <h2 className="text-xl font-semibold text-white mb-4">Routing Attributes</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <section className="p-4 sm:p-6 rounded-xl border border-zinc-800 bg-zinc-900/50">
+        <h2 className="text-lg sm:text-xl font-semibold text-white mb-4">Routing Attributes</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
           <div className="p-4 rounded-lg bg-zinc-800/50 border border-zinc-700">
             <h3 className="font-semibold text-blue-400 mb-2">[Command]</h3>
             <p className="text-zinc-400 text-sm">Handle bot commands starting with /</p>
@@ -116,15 +116,15 @@ export function Routing() {
 
       {/* Command Attribute */}
       <section>
-        <h2 className="text-2xl font-bold text-white mb-4">[Command] Attribute</h2>
+        <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">[Command] Attribute</h2>
         <p className="text-zinc-400 mb-6">
           Handle bot commands (messages starting with <code className="px-2 py-1 rounded bg-zinc-800 text-blue-400">/</code>):
         </p>
         <CodeBlock code={commandExample} language="csharp" filename="Commands" />
         
-        <div className="mt-6 p-4 rounded-lg border border-zinc-800 bg-zinc-900/50">
+        <div className="mt-6 p-3 sm:p-4 rounded-lg border border-zinc-800 bg-zinc-900/50 overflow-x-auto">
           <h4 className="font-semibold text-white mb-3">Properties</h4>
-          <table className="w-full text-sm">
+          <table className="w-full text-xs sm:text-sm">
             <thead>
               <tr className="border-b border-zinc-800">
                 <th className="text-left py-2 text-zinc-400">Property</th>
@@ -150,15 +150,15 @@ export function Routing() {
 
       {/* Text Attribute */}
       <section>
-        <h2 className="text-2xl font-bold text-white mb-4">[Text] Attribute</h2>
+        <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">[Text] Attribute</h2>
         <p className="text-zinc-400 mb-6">
           Handle text messages with flexible pattern matching:
         </p>
         <CodeBlock code={textExample} language="csharp" filename="Text Handlers" />
         
-        <div className="mt-6 p-4 rounded-lg border border-zinc-800 bg-zinc-900/50">
+        <div className="mt-6 p-3 sm:p-4 rounded-lg border border-zinc-800 bg-zinc-900/50 overflow-x-auto">
           <h4 className="font-semibold text-white mb-3">Properties</h4>
-          <table className="w-full text-sm">
+          <table className="w-full text-xs sm:text-sm">
             <thead>
               <tr className="border-b border-zinc-800">
                 <th className="text-left py-2 text-zinc-400">Property</th>
@@ -207,15 +207,15 @@ export function Routing() {
 
       {/* CallbackQuery Attribute */}
       <section>
-        <h2 className="text-2xl font-bold text-white mb-4">[CallbackQuery] Attribute</h2>
+        <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">[CallbackQuery] Attribute</h2>
         <p className="text-zinc-400 mb-6">
           Handle inline keyboard button clicks:
         </p>
         <CodeBlock code={callbackExample} language="csharp" filename="Callback Handlers" />
         
-        <div className="mt-6 p-4 rounded-lg border border-zinc-800 bg-zinc-900/50">
+        <div className="mt-6 p-3 sm:p-4 rounded-lg border border-zinc-800 bg-zinc-900/50 overflow-x-auto">
           <h4 className="font-semibold text-white mb-3">Pattern Matching</h4>
-          <table className="w-full text-sm">
+          <table className="w-full text-xs sm:text-sm">
             <thead>
               <tr className="border-b border-zinc-800">
                 <th className="text-left py-2 text-zinc-400">Pattern</th>
@@ -242,7 +242,7 @@ export function Routing() {
 
       {/* Multiple Attributes */}
       <section>
-        <h2 className="text-2xl font-bold text-white mb-4">Multiple Attributes</h2>
+        <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">Multiple Attributes</h2>
         <p className="text-zinc-400 mb-6">
           A single handler can respond to multiple triggers:
         </p>
@@ -250,7 +250,7 @@ export function Routing() {
       </section>
 
       {/* Next Steps */}
-      <section className="flex gap-4">
+      <section className="flex flex-col sm:flex-row gap-3 sm:gap-4">
         <Link
           to="/context"
           className="flex-1 flex items-center justify-between p-4 rounded-lg bg-zinc-800/50 hover:bg-zinc-800 border border-zinc-700 transition-colors group"

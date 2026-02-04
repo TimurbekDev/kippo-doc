@@ -11,7 +11,8 @@ import {
   Zap,
   Settings,
   ChevronRight,
-  ExternalLink
+  ExternalLink,
+  X
 } from 'lucide-react';
 
 interface NavItem {
@@ -43,13 +44,43 @@ const navigation: NavItem[] = [
   { title: 'Examples', href: '/examples', icon: <MessageSquare size={18} /> },
 ];
 
-export function Sidebar() {
+interface SidebarProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export function Sidebar({ isOpen, onClose }: SidebarProps) {
   const location = useLocation();
 
   return (
-    <aside className="w-64 h-screen sticky top-0 border-r border-zinc-800 bg-zinc-950/50 overflow-y-auto">
+    <>
+      {/* Mobile overlay */}
+      {isOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          onClick={onClose}
+        />
+      )}
+      
+      {/* Sidebar */}
+      <aside className={`
+        fixed lg:sticky top-0 h-screen z-50
+        w-64 border-r border-zinc-800 bg-zinc-950 overflow-y-auto
+        transition-transform duration-300 ease-in-out
+        lg:translate-x-0
+        ${isOpen ? 'translate-x-0' : '-translate-x-full'}
+      `}>
       <div className="p-6">
-        <Link to="/" className="flex items-center gap-3 group">
+        {/* Close button for mobile */}
+        <button
+          onClick={onClose}
+          className="lg:hidden absolute top-4 right-4 p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
+          aria-label="Close menu"
+        >
+          <X size={20} />
+        </button>
+        
+        <Link to="/" className="flex items-center gap-3 group" onClick={onClose}>
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
             <span className="text-white font-bold text-lg">K</span>
           </div>
@@ -70,6 +101,7 @@ export function Sidebar() {
               <li key={item.href}>
                 <Link
                   to={item.href}
+                  onClick={onClose}
                   className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
                     isActive
                       ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
@@ -91,6 +123,7 @@ export function Sidebar() {
                       <li key={subItem.href}>
                         <Link
                           to={subItem.href}
+                          onClick={onClose}
                           className={`block px-3 py-1.5 rounded-md text-sm transition-colors ${
                             location.pathname === subItem.href
                               ? 'text-blue-400'
@@ -150,5 +183,7 @@ export function Sidebar() {
         </div>
       </nav>
     </aside>
+    </>
   );
 }
+  

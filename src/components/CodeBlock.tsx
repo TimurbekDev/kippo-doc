@@ -73,19 +73,19 @@ export function CodeBlock({ code, language, filename, showLineNumbers = true }: 
   return (
     <div className="group rounded-xl overflow-hidden border border-zinc-800 bg-gradient-to-br from-zinc-900 to-zinc-950 my-4 shadow-xl shadow-black/20">
       {/* Header */}
-      <div className="flex items-center justify-between px-4 py-2.5 bg-zinc-900/80 border-b border-zinc-800">
-        <div className="flex items-center gap-3">
+      <div className="flex items-center justify-between px-3 sm:px-4 py-2.5 bg-zinc-900/80 border-b border-zinc-800">
+        <div className="flex items-center gap-2 sm:gap-3">
           {/* Traffic lights */}
-          <div className="flex items-center gap-1.5">
+          <div className="hidden sm:flex items-center gap-1.5">
             <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
             <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
             <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
           </div>
           
           {/* Filename or language */}
-          <div className="flex items-center gap-2 text-sm">
+          <div className="flex items-center gap-2 text-xs sm:text-sm">
             {getLanguageIcon(language)}
-            <span className="text-zinc-400 font-medium">
+            <span className="text-zinc-400 font-medium truncate max-w-[150px] sm:max-w-none">
               {filename || getLanguageLabel(language)}
             </span>
           </div>
@@ -94,7 +94,7 @@ export function CodeBlock({ code, language, filename, showLineNumbers = true }: 
         {/* Copy button */}
         <button
           onClick={copyToClipboard}
-          className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium transition-all ${
+          className={`flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-1 rounded-md text-xs font-medium transition-all ${
             copied 
               ? 'bg-green-500/20 text-green-400 border border-green-500/30' 
               : 'bg-zinc-800 text-zinc-400 hover:text-white hover:bg-zinc-700 border border-zinc-700'
@@ -104,12 +104,12 @@ export function CodeBlock({ code, language, filename, showLineNumbers = true }: 
           {copied ? (
             <>
               <Check size={14} />
-              Copied!
+              <span className="hidden sm:inline">Copied!</span>
             </>
           ) : (
             <>
               <Copy size={14} />
-              Copy
+              <span className="hidden sm:inline">Copy</span>
             </>
           )}
         </button>
@@ -118,14 +118,14 @@ export function CodeBlock({ code, language, filename, showLineNumbers = true }: 
       {/* Code content */}
       <div className="relative flex">
         {shouldShowLineNumbers && (
-          <div className="flex-shrink-0 w-12 bg-zinc-900/50 border-r border-zinc-800 pt-4 pb-4 text-right pr-3 text-zinc-600 text-sm font-mono select-none">
+          <div className="flex-shrink-0 w-8 sm:w-12 bg-zinc-900/50 border-r border-zinc-800 pt-3 sm:pt-4 pb-3 sm:pb-4 text-right pr-2 sm:pr-3 text-zinc-600 text-xs sm:text-sm font-mono select-none">
             {lines.map((_, i) => (
-              <div key={i} className="h-6">{i + 1}</div>
+              <div key={i} className="h-5 sm:h-6">{i + 1}</div>
             ))}
           </div>
         )}
         <div 
-          className={`shiki-wrapper flex-1 p-4 overflow-x-auto text-sm font-mono`}
+          className={`shiki-wrapper flex-1 p-3 sm:p-4 overflow-x-auto text-xs sm:text-sm font-mono`}
           dangerouslySetInnerHTML={{ __html: highlightedCode }}
         />
       </div>

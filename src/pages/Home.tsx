@@ -64,8 +64,8 @@ export function Home() {
   return (
     <div className="space-y-16">
       {/* Hero Section */}
-      <section className="text-center py-12">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-6">
+      <section className="text-center py-8 sm:py-12">
+        <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs sm:text-sm font-medium mb-6">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
@@ -73,23 +73,22 @@ export function Home() {
           Version 1.0.4 Released
         </div>
         
-        <h1 className="text-5xl font-extrabold text-white mb-6 leading-tight">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight">
           Build Telegram Bots<br />
           <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
             with Elegance
           </span>
         </h1>
         
-        <p className="text-xl text-zinc-400 max-w-2xl mx-auto mb-8">
+        <p className="text-base sm:text-lg lg:text-xl text-zinc-400 max-w-2xl mx-auto mb-8">
           A lightweight, attribute-based framework for creating powerful Telegram bots in .NET 
           with session management, middleware support, and intuitive routing.
         </p>
 
-        <div className="flex items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
           <Link
             to="/quick-start"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-colors"
-          >
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-colors">
             Get Started
             <ArrowRight size={18} />
           </Link>
@@ -97,14 +96,13 @@ export function Home() {
             href="https://www.nuget.org/packages/Kippo"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white font-semibold transition-colors border border-zinc-700"
-          >
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white font-semibold transition-colors border border-zinc-700">
             <Package size={18} />
             NuGet Package
           </a>
         </div>
 
-        <div className="flex items-center justify-center gap-8 mt-8 text-sm text-zinc-500">
+        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 mt-8 text-xs sm:text-sm text-zinc-500">
           <span className="flex items-center gap-2">
             <CheckCircle2 size={16} className="text-green-500" />
             .NET 8, 9, 10
@@ -122,7 +120,7 @@ export function Home() {
 
       {/* Quick Example */}
       <section>
-        <h2 className="text-2xl font-bold text-white mb-4">Quick Example</h2>
+        <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">Quick Example</h2>
         <p className="text-zinc-400 mb-6">
           Get your Telegram bot running in just 3 steps:
         </p>
@@ -131,19 +129,18 @@ export function Home() {
 
       {/* Features Grid */}
       <section>
-        <h2 className="text-2xl font-bold text-white mb-8">Why Kippo?</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8">Why Kippo?</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="p-6 rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-zinc-700 transition-colors"
-            >
-              <div className="flex items-start gap-4">
+              className="p-4 sm:p-6 rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-zinc-700 transition-colors">
+              <div className="flex items-start gap-3 sm:gap-4">
                 <div className="p-2 rounded-lg bg-zinc-800">
                   {feature.icon}
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-white mb-2">
+                  <h3 className="text-base sm:text-lg font-semibold text-white mb-2">
                     {feature.title}
                   </h3>
                   <p className="text-zinc-400 text-sm leading-relaxed">
@@ -157,8 +154,8 @@ export function Home() {
       </section>
 
       {/* Installation */}
-      <section className="p-8 rounded-xl border border-zinc-800 bg-gradient-to-br from-zinc-900 to-zinc-950">
-        <h2 className="text-2xl font-bold text-white mb-4">Installation</h2>
+      <section className="p-4 sm:p-6 lg:p-8 rounded-xl border border-zinc-800 bg-gradient-to-br from-zinc-900 to-zinc-950">
+        <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">Installation</h2>
         <p className="text-zinc-400 mb-6">
           Install Kippo via NuGet Package Manager:
         </p>
@@ -182,8 +179,8 @@ export function Home() {
       </section>
 
       {/* CTA */}
-      <section className="text-center py-12">
-        <h2 className="text-3xl font-bold text-white mb-4">
+      <section className="text-center py-8 sm:py-12">
+        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
           Ready to Build Your Bot?
         </h2>
         <p className="text-zinc-400 mb-8">
@@ -191,10 +188,10 @@ export function Home() {
         </p>
         <Link
           to="/quick-start"
-          className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold transition-all shadow-lg shadow-blue-500/25"
+          className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold transition-all shadow-lg shadow-blue-500/25"
         >
           Start Building
-          <ArrowRight size={20} />
+          <ArrowRight size={18} className="sm:w-5 sm:h-5" />
         </Link>
       </section>
     </div>
