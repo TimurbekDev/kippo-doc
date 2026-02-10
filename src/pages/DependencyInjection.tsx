@@ -240,7 +240,7 @@ export function DependencyInjection() {
       <section className="p-6 rounded-xl border border-green-500/20 bg-green-500/5">
         <h2 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
           <Zap className="text-green-500" size={20} />
-          New in v1.0.4: Method Parameter Injection
+          New in v1.0.5: Method Parameter Injection
         </h2>
         <p className="text-zinc-400">
           Inject services directly into handler method parameters! The framework automatically 
