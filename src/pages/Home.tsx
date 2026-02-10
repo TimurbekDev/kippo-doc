@@ -70,7 +70,7 @@ export function Home() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
           </span>
-          Version 1.0.4 Released
+          Version 1.0.5 Released
         </div>
         
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight">
@@ -154,7 +154,7 @@ export function Home() {
       </section>
 
       {/* Installation */}
-      <section className="p-4 sm:p-6 lg:p-8 rounded-xl border border-zinc-800 bg-gradient-to-br from-zinc-900 to-zinc-950">
+      <section className="p-4 sm:p-6 lg:p-8 rounded-xl border border-zinc-800 bg-linear-to-br from-zinc-900 to-zinc-950">
         <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">Installation</h2>
         <p className="text-zinc-400 mb-6">
           Install Kippo via NuGet Package Manager:
@@ -173,7 +173,7 @@ export function Home() {
           
           <div>
             <p className="text-sm text-zinc-500 mb-2">PackageReference</p>
-            <CodeBlock code='<PackageReference Include="Kippo" Version="1.0.4" />' language="xml" />
+            <CodeBlock code='<PackageReference Include="Kippo" Version="1.0.5" />' language="xml" />
           </div>
         </div>
       </section>
@@ -188,7 +188,7 @@ export function Home() {
         </p>
         <Link
           to="/quick-start"
-          className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold transition-all shadow-lg shadow-blue-500/25"
+          className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold transition-all shadow-lg shadow-blue-500/25"
         >
           Start Building
           <ArrowRight size={18} className="sm:w-5 sm:h-5" />

@@ -236,7 +236,7 @@ export function DependencyInjection() {
         </p>
       </div>
 
-      {/* New in 1.0.4 */}
+      {/* New in 1.0.5 */}
       <section className="p-6 rounded-xl border border-green-500/20 bg-green-500/5">
         <h2 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
           <Zap className="text-green-500" size={20} />
