@@ -70,7 +70,7 @@ export function Home() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
           </span>
-          Version 1.0.5 Released
+          Version 1.0.6 Released
         </div>
         
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight">
@@ -173,7 +173,7 @@ export function Home() {
           
           <div>
             <p className="text-sm text-zinc-500 mb-2">PackageReference</p>
-            <CodeBlock code='<PackageReference Include="Kippo" Version="1.0.5" />' language="xml" />
+            <CodeBlock code='<PackageReference Include="Kippo" Version="1.0.6" />' language="xml" />
           </div>
         </div>
       </section>

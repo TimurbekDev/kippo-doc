@@ -86,7 +86,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           </div>
           <div>
             <h1 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Kippo</h1>
-            <p className="text-xs text-zinc-500">v1.0.5</p>
+            <p className="text-xs text-zinc-500">v1.0.6</p>
           </div>
         </Link>
       </div>
