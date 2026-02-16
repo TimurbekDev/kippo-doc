@@ -71,7 +71,7 @@ export function CodeBlock({ code, language, filename, showLineNumbers = true }: 
   const shouldShowLineNumbers = showLineNumbers && lines.length > 1;
 
   return (
-    <div className="group rounded-xl overflow-hidden border border-zinc-800 bg-gradient-to-br from-zinc-900 to-zinc-950 my-4 shadow-xl shadow-black/20">
+    <div className="group rounded-xl overflow-hidden border border-zinc-800 bg-linear-to-br from-zinc-900 to-zinc-950 my-4 shadow-xl shadow-black/20">
       {/* Header */}
       <div className="flex items-center justify-between px-3 sm:px-4 py-2.5 bg-zinc-900/80 border-b border-zinc-800">
         <div className="flex items-center gap-2 sm:gap-3">
@@ -85,7 +85,7 @@ export function CodeBlock({ code, language, filename, showLineNumbers = true }: 
           {/* Filename or language */}
           <div className="flex items-center gap-2 text-xs sm:text-sm">
             {getLanguageIcon(language)}
-            <span className="text-zinc-400 font-medium truncate max-w-[150px] sm:max-w-none">
+            <span className="text-zinc-400 font-medium truncate max-w-37.5 sm:max-w-none">
               {filename || getLanguageLabel(language)}
             </span>
           </div>
@@ -118,7 +118,7 @@ export function CodeBlock({ code, language, filename, showLineNumbers = true }: 
       {/* Code content */}
       <div className="relative flex">
         {shouldShowLineNumbers && (
-          <div className="flex-shrink-0 w-8 sm:w-12 bg-zinc-900/50 border-r border-zinc-800 pt-3 sm:pt-4 pb-3 sm:pb-4 text-right pr-2 sm:pr-3 text-zinc-600 text-xs sm:text-sm font-mono select-none">
+          <div className="shrink-0 w-8 sm:w-12 bg-zinc-900/50 border-r border-zinc-800 pt-3 sm:pt-4 pb-3 sm:pb-4 text-right pr-2 sm:pr-3 text-zinc-600 text-xs sm:text-sm font-mono select-none">
             {lines.map((_, i) => (
               <div key={i} className="h-5 sm:h-6">{i + 1}</div>
             ))}

@@ -13,6 +13,7 @@ import { Middleware } from './pages/Middleware';
 import { DependencyInjection } from './pages/DependencyInjection';
 import { Configuration } from './pages/Configuration';
 import { Examples } from './pages/Examples';
+import { Contributors } from './pages/Contributors';
 
 export default function App() {
   return (
@@ -32,6 +33,7 @@ export default function App() {
           <Route path="dependency-injection" element={<DependencyInjection />} />
           <Route path="configuration" element={<Configuration />} />
           <Route path="examples" element={<Examples />} />
+          <Route path="contributors" element={<Contributors />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -328,7 +328,7 @@ export function Middleware() {
         <CodeBlock code={middlewareOrder} language="csharp" filename="Middleware Order" />
         
         <div className="mt-6 p-4 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-start gap-3">
-          <Info className="text-blue-500 flex-shrink-0 mt-0.5" size={18} />
+          <Info className="text-blue-500 shrink-0 mt-0.5" size={18} />
           <div className="text-blue-200 text-sm">
             <strong>Tip:</strong> Place error handling middleware first so it can catch errors from all other middleware. 
             Place session middleware last so sessions are available in handlers.

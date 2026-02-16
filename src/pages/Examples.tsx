@@ -594,7 +594,7 @@ export function Examples() {
       </section>
 
       {/* Run Instructions */}
-      <section className="p-6 rounded-xl bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-500/20">
+      <section className="p-6 rounded-xl bg-linear-to-br from-green-500/10 to-emerald-500/10 border border-green-500/20">
         <h2 className="text-xl font-semibold text-white mb-4">Run the Example</h2>
         <CodeBlock 
           code={`# Clone the repository

@@ -100,15 +100,15 @@ export function QuickStart() {
         </h2>
         <ul className="space-y-3">
           <li className="flex items-center gap-3 text-zinc-300">
-            <CheckCircle2 className="text-green-500 flex-shrink-0" size={18} />
+            <CheckCircle2 className="text-green-500 shrink-0" size={18} />
             <span>.NET 8.0, 9.0, or 10.0 SDK installed</span>
           </li>
           <li className="flex items-center gap-3 text-zinc-300">
-            <CheckCircle2 className="text-green-500 flex-shrink-0" size={18} />
+            <CheckCircle2 className="text-green-500 shrink-0" size={18} />
             <span>A Telegram Bot Token (get from <a href="https://t.me/botfather" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">@BotFather</a>)</span>
           </li>
           <li className="flex items-center gap-3 text-zinc-300">
-            <CheckCircle2 className="text-green-500 flex-shrink-0" size={18} />
+            <CheckCircle2 className="text-green-500 shrink-0" size={18} />
             <span>Basic knowledge of C# and ASP.NET Core</span>
           </li>
         </ul>
@@ -135,7 +135,7 @@ export function QuickStart() {
           </ol>
           
           <div className="p-4 rounded-lg bg-yellow-500/10 border border-yellow-500/20 flex items-start gap-3">
-            <AlertCircle className="text-yellow-500 flex-shrink-0 mt-0.5" size={18} />
+            <AlertCircle className="text-yellow-500 shrink-0 mt-0.5" size={18} />
             <p className="text-yellow-200 text-sm">
               <strong>Important:</strong> Keep your bot token secret! Never commit it to public repositories.
             </p>
@@ -176,7 +176,7 @@ export function QuickStart() {
           <CodeBlock code={step1Code} language="json" filename="appsettings.json" />
           
           <div className="p-4 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-start gap-3">
-            <Info className="text-blue-500 flex-shrink-0 mt-0.5" size={18} />
+            <Info className="text-blue-500 shrink-0 mt-0.5" size={18} />
             <p className="text-blue-200 text-sm">
               <strong>Tip:</strong> For development, use <code className="px-1 py-0.5 rounded bg-zinc-800">appsettings.Development.json</code> to keep your token separate from production settings.
             </p>
@@ -244,7 +244,7 @@ export function QuickStart() {
           </p>
           <CodeBlock code="dotnet run" language="bash" filename="Terminal" />
           
-          <div className="p-6 rounded-xl bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20">
+          <div className="p-6 rounded-xl bg-linear-to-br from-green-500/10 to-emerald-500/10 border border-green-500/20">
             <h3 className="text-xl font-semibold text-green-400 mb-2 flex items-center gap-2">
               <CheckCircle2 size={24} />
               Your bot is now live!
@@ -270,7 +270,7 @@ export function QuickStart() {
       </section>
 
       {/* Next Steps */}
-      <section className="p-4 sm:p-6 lg:p-8 rounded-xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20">
+      <section className="p-4 sm:p-6 lg:p-8 rounded-xl bg-linear-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20">
         <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">What's Next?</h2>
         <p className="text-zinc-300 mb-6">
           Now that your bot is running, explore more features:

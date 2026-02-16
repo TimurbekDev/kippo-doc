@@ -8,7 +8,11 @@ import {
   Rocket, 
   Package,
   ArrowRight,
-  CheckCircle2
+  CheckCircle2,
+  Download,
+  TrendingUp,
+  Users,
+  Star
 } from 'lucide-react';
 
 const features = [
@@ -75,7 +79,7 @@ export function Home() {
         
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight">
           Build Telegram Bots<br />
-          <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+          <span className="bg-linear-to-br from-blue-500 to-purple-600 bg-clip-text text-transparent">
             with Elegance
           </span>
         </h1>

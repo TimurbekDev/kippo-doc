@@ -12,7 +12,8 @@ import {
   Settings,
   ChevronRight,
   ExternalLink,
-  X
+  X,
+  Users
 } from 'lucide-react';
 
 interface NavItem {
@@ -42,6 +43,7 @@ const navigation: NavItem[] = [
   { title: 'Dependency Injection', href: '/dependency-injection', icon: <Zap size={18} /> },
   { title: 'Configuration', href: '/configuration', icon: <Settings size={18} /> },
   { title: 'Examples', href: '/examples', icon: <MessageSquare size={18} /> },
+  { title: 'Contributors & Statistics', href: '/contributors', icon: <Users size={18} /> },
 ];
 
 interface SidebarProps {
@@ -81,7 +83,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
         </button>
         
         <Link to="/" className="flex items-center gap-3 group" onClick={onClose}>
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
+          <div className="w-10 h-10 rounded-xl bg-linear-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
             <span className="text-white font-bold text-lg">K</span>
           </div>
           <div>

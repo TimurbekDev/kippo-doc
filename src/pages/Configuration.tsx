@@ -198,7 +198,7 @@ export function Configuration() {
         <h2 className="text-2xl font-bold text-white mb-4">Secure Token Storage</h2>
         
         <div className="p-4 rounded-lg bg-red-500/10 border border-red-500/20 flex items-start gap-3 mb-6">
-          <AlertCircle className="text-red-500 flex-shrink-0 mt-0.5" size={18} />
+          <AlertCircle className="text-red-500 shrink-0 mt-0.5" size={18} />
           <div className="text-red-200 text-sm">
             <strong>Security Warning:</strong> Never commit your bot token to version control! 
             Use environment variables or user secrets for sensitive data.
@@ -227,7 +227,7 @@ export function Configuration() {
         <CodeBlock code={programCs} language="csharp" filename="Program.cs" />
         
         <div className="mt-6 p-4 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-start gap-3">
-          <Info className="text-blue-500 flex-shrink-0 mt-0.5" size={18} />
+          <Info className="text-blue-500 shrink-0 mt-0.5" size={18} />
           <div className="text-blue-200 text-sm">
             <strong>Configuration Priority (highest to lowest):</strong>
             <ol className="list-decimal list-inside mt-2 space-y-1">

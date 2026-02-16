@@ -266,7 +266,7 @@ export function DependencyInjection() {
         <CodeBlock code={scopedServices} language="csharp" filename="Scoped Services" />
         
         <div className="mt-6 p-4 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-start gap-3">
-          <Info className="text-blue-500 flex-shrink-0 mt-0.5" size={18} />
+          <Info className="text-blue-500 shrink-0 mt-0.5" size={18} />
           <div className="text-blue-200 text-sm">
             <strong>How it works:</strong> Kippo automatically creates a new service scope for each 
             update, ensuring that scoped services like DbContext are properly disposed after each request.
@@ -322,7 +322,7 @@ export function DependencyInjection() {
         <CodeBlock code={constructorInjection} language="csharp" filename="Constructor Injection" />
         
         <div className="mt-6 p-4 rounded-lg bg-yellow-500/10 border border-yellow-500/20 flex items-start gap-3">
-          <Info className="text-yellow-500 flex-shrink-0 mt-0.5" size={18} />
+          <Info className="text-yellow-500 shrink-0 mt-0.5" size={18} />
           <div className="text-yellow-200 text-sm">
             <strong>Recommendation:</strong> Use method parameter injection for cleaner code. 
             Constructor injection is useful when you need to share state across methods or 
