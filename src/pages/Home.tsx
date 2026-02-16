@@ -9,10 +9,6 @@ import {
   Package,
   ArrowRight,
   CheckCircle2,
-  Download,
-  TrendingUp,
-  Users,
-  Star
 } from 'lucide-react';
 
 const features = [
