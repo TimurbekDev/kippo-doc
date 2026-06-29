@@ -67,3 +67,129 @@ code, pre {
   height: 1.5rem;
   line-height: 1.5rem;
 }
+
+/* ---------------------------------------------------------------------------
+   Documentation prose: semantic defaults so content modules can be written
+   with plain <h2>/<p>/<ul>/<code> and stay visually consistent.
+   --------------------------------------------------------------------------- */
+.doc-prose {
+  color: #d4d4d8; /* zinc-300 */
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.doc-prose > :first-child {
+  margin-top: 0;
+}
+
+.doc-prose h1 {
+  font-size: clamp(1.875rem, 1.5rem + 1.5vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #fff;
+  margin: 0 0 1rem;
+  letter-spacing: -0.02em;
+}
+
+.doc-prose .lead {
+  font-size: 1.125rem;
+  color: #a1a1aa; /* zinc-400 */
+  margin: 0 0 2rem;
+  line-height: 1.7;
+}
+
+.doc-prose h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 2.75rem 0 1rem;
+  scroll-margin-top: 6rem;
+  letter-spacing: -0.01em;
+}
+
+.doc-prose h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fafafa;
+  margin: 2rem 0 0.75rem;
+  scroll-margin-top: 6rem;
+}
+
+.doc-prose p {
+  margin: 0 0 1.25rem;
+}
+
+.doc-prose a {
+  color: #60a5fa; /* blue-400 */
+  text-decoration: none;
+}
+.doc-prose a:hover {
+  color: #93c5fd;
+  text-decoration: underline;
+}
+
+.doc-prose strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+.doc-prose ul,
+.doc-prose ol {
+  margin: 0 0 1.25rem;
+  padding-left: 1.5rem;
+}
+.doc-prose ul {
+  list-style: disc;
+}
+.doc-prose ol {
+  list-style: decimal;
+}
+.doc-prose li {
+  margin: 0.4rem 0;
+}
+.doc-prose li::marker {
+  color: #52525b; /* zinc-600 */
+}
+
+.doc-prose :not(pre) > code {
+  background: #27272a; /* zinc-800 */
+  color: #93c5fd;
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.375rem;
+  font-size: 0.85em;
+  font-family: var(--font-mono);
+}
+
+.doc-prose hr {
+  border: none;
+  border-top: 1px solid #27272a;
+  margin: 2.5rem 0;
+}
+
+.doc-prose blockquote {
+  border-left: 3px solid #3f3f46;
+  padding-left: 1rem;
+  color: #a1a1aa;
+  font-style: italic;
+  margin: 1.5rem 0;
+}
+
+.doc-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+  display: block;
+  overflow-x: auto;
+}
+.doc-prose th,
+.doc-prose td {
+  border: 1px solid #27272a;
+  padding: 0.6rem 0.85rem;
+  text-align: left;
+}
+.doc-prose th {
+  background: #18181b;
+  color: #fff;
+  font-weight: 600;
+}
