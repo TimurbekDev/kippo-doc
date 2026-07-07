@@ -57,6 +57,31 @@ public async Task HandlePage(Context context)
     var page = context.Callback.Data.Replace("page_", "");
     await context.Callback.Answer();
     await context.Reply($"Showing page {page}");
+}
+
+// Typed template — {placeholders} are parsed and bound to parameters
+[CallbackQuery("product:{id}:{action}")]
+public async Task HandleProduct(Context context, int id, string action)
+{
+    await context.Callback.Answer();
+    await context.Reply($"Product {id} → {action}");
+}`;
+
+const chatMemberExample = `// Handle chat member updates (joins, leaves, promotions, bot added/removed)
+[ChatMember]
+public async Task OnChatMember(Context context, ChatMemberUpdated update)
+{
+    var status = update.NewChatMember.Status;
+    var user = update.NewChatMember.User;
+    await context.Reply($"{user.FirstName} is now {status}");
+}`;
+
+const contactExample = `// Handle shared contacts (e.g. from a "Share phone number" button)
+[Contact]
+public async Task OnContact(Context context, Contact contact)
+{
+    context.Session!.Data["phone"] = contact.PhoneNumber;
+    await context.Reply($"Thanks! Saved {contact.PhoneNumber}");
 }`;
 
 const multipleAttributesExample = `// Handler responds to multiple triggers
@@ -78,7 +103,7 @@ export default function Routing() {
         complex configuration, just decorate your methods.
       </p>
 
-      <div className="my-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
+      <div className="my-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
         <div className="rounded-lg border border-zinc-700 bg-zinc-800/50 p-4">
           <h3 className="mb-1 font-mono font-semibold text-blue-400">[Command]</h3>
           <p className="text-sm text-zinc-400">Handle bot commands starting with /</p>
@@ -89,7 +114,15 @@ export default function Routing() {
         </div>
         <div className="rounded-lg border border-zinc-700 bg-zinc-800/50 p-4">
           <h3 className="mb-1 font-mono font-semibold text-purple-400">[CallbackQuery]</h3>
-          <p className="text-sm text-zinc-400">Handle inline keyboard button clicks</p>
+          <p className="text-sm text-zinc-400">Handle inline button clicks, with typed templates</p>
+        </div>
+        <div className="rounded-lg border border-zinc-700 bg-zinc-800/50 p-4">
+          <h3 className="mb-1 font-mono font-semibold text-amber-400">[ChatMember]</h3>
+          <p className="text-sm text-zinc-400">Handle member joins, leaves, and status changes</p>
+        </div>
+        <div className="rounded-lg border border-zinc-700 bg-zinc-800/50 p-4">
+          <h3 className="mb-1 font-mono font-semibold text-pink-400">[Contact]</h3>
+          <p className="text-sm text-zinc-400">Handle shared phone-number contacts</p>
         </div>
       </div>
 
@@ -109,8 +142,32 @@ export default function Routing() {
       </Callout>
 
       <h2>[CallbackQuery] Attribute</h2>
-      <p>Handle inline keyboard button presses, with exact or wildcard matching:</p>
+      <p>
+        Handle inline keyboard button presses with exact, wildcard, or typed template
+        matching. Template <code>{'{placeholders}'}</code> are parsed from the callback
+        data and bound to your handler parameters by name — with automatic type
+        conversion:
+      </p>
       <CodeBlock code={callbackExample} language="csharp" filename="Callback Handlers" />
+
+      <Callout type="info" title="Typed callback data">
+        A pattern like <code>product:{'{id}'}:{'{action}'}</code> matches
+        <code>product:42:buy</code> and binds <code>id = 42</code> (as <code>int</code>)
+        and <code>action = "buy"</code>. Supports <code>int</code>, <code>long</code>,
+        <code>Guid</code>, <code>bool</code>, enums, and more. See the{' '}
+        <strong>Callback Queries</strong> page for the full reference.
+      </Callout>
+
+      <h2>[ChatMember] Attribute</h2>
+      <p>
+        Handle chat member updates — users joining or leaving, status changes, and your
+        bot being added to or removed from a chat:
+      </p>
+      <CodeBlock code={chatMemberExample} language="csharp" filename="Chat Member Handlers" />
+
+      <h2>[Contact] Attribute</h2>
+      <p>Handle contact messages, such as a user sharing their phone number:</p>
+      <CodeBlock code={contactExample} language="csharp" filename="Contact Handlers" />
 
       <h2>Multiple Attributes</h2>
       <p>A single handler can respond to multiple triggers:</p>

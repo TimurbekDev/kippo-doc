@@ -1,6 +1,6 @@
 import { useMemo, useState, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronDown, ExternalLink, Search, X, Github } from 'lucide-react';
+import { ChevronDown, ChevronRight, ExternalLink, Search, X, Github } from 'lucide-react';
 import { useDocs } from '../../context/DocsProvider';
 import { groupedSections, type DocSection } from '../../data/registry';
 import { SectionIcon } from './icons';
@@ -160,21 +160,45 @@ function NavItem({
   onClose: () => void;
 }) {
   const active = activeId === item.id;
+  const hasChildren = children_.length > 0;
+  const childActive = hasChildren && children_.some((c) => c.id === activeId);
+  const [open, setOpen] = useState(active || childActive);
+
   return (
     <li>
-      <Link
-        to={hrefFor(item.id)}
-        onClick={onClose}
-        className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-all ${
+      <div
+        className={`group flex items-center rounded-lg pr-1 transition-all ${
           active
-            ? 'border border-blue-500/20 bg-blue-500/10 text-blue-400'
-            : 'text-zinc-400 hover:bg-zinc-800/50 hover:text-white'
+            ? 'border border-blue-500/20 bg-blue-500/10'
+            : 'hover:bg-zinc-800/50'
         }`}
       >
-        <SectionIcon name={item.icon} />
-        {item.title}
-      </Link>
-      {children_.length > 0 && (
+        <Link
+          to={hrefFor(item.id)}
+          onClick={onClose}
+          className={`flex flex-1 items-center gap-3 px-3 py-2 text-sm font-medium ${
+            active ? 'text-blue-400' : 'text-zinc-400 group-hover:text-white'
+          }`}
+        >
+          <SectionIcon name={item.icon} />
+          {item.title}
+        </Link>
+        {hasChildren && (
+          <button
+            type="button"
+            onClick={() => setOpen((o) => !o)}
+            aria-label={open ? `Collapse ${item.title}` : `Expand ${item.title}`}
+            aria-expanded={open}
+            className="rounded p-1 text-zinc-500 transition-colors hover:bg-zinc-700/50 hover:text-white"
+          >
+            <ChevronRight
+              size={15}
+              className={`transition-transform ${open ? 'rotate-90' : ''}`}
+            />
+          </button>
+        )}
+      </div>
+      {hasChildren && open && (
         <ul className="ml-7 mt-0.5 space-y-0.5 border-l border-zinc-800 pl-3">
           {children_.map((child) => (
             <li key={child.id}>

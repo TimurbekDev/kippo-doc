@@ -1,6 +1,4 @@
-import { ExternalLink } from 'lucide-react';
 import { CodeBlock } from '../../../components/docs/CodeBlock';
-import { useDocs } from '../../../context/DocsProvider';
 
 const completeHandler = `using Kippo.Attribute;
 using Kippo.Contexs;
@@ -165,36 +163,12 @@ const pollBot = `public class PollHandler : BotUpdateHandler
 }`;
 
 export default function Examples() {
-  const { pkg } = useDocs();
-  const repoUrl = `https://github.com/${pkg.repo}`;
-
   return (
     <>
       <h1>Examples</h1>
       <p className="lead">
         Complete, working examples demonstrating real-world Kippo bot patterns.
       </p>
-
-      <div className="my-6 rounded-xl border border-blue-500/20 bg-blue-500/5 p-6">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-          <div>
-            <h2 className="!mt-0 text-xl font-bold text-white">KippoGramm — complete demo bot</h2>
-            <p className="mt-2 text-sm text-zinc-400">
-              A full-featured demo showcasing registration flow, sessions, keyboards, and
-              middleware.
-            </p>
-          </div>
-          <a
-            href={repoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-zinc-800 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-700"
-          >
-            <ExternalLink size={16} />
-            View on GitHub
-          </a>
-        </div>
-      </div>
 
       <h2>Program.cs</h2>
       <CodeBlock code={programCs} language="csharp" filename="Program.cs" />
@@ -210,18 +184,6 @@ export default function Examples() {
       <h2>Poll bot</h2>
       <p>Create simple polls with inline keyboards:</p>
       <CodeBlock code={pollBot} language="csharp" filename="PollHandler.cs" />
-
-      <h2>Run the example</h2>
-      <CodeBlock
-        code={`# Clone the repository
-git clone ${repoUrl}.git
-cd KippoGramm/KippoGramm
-
-# Add your bot token to appsettings.json, then run
-dotnet run`}
-        language="bash"
-        filename="Terminal"
-      />
     </>
   );
 }
