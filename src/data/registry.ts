@@ -128,6 +128,14 @@ const KIPPO_SECTIONS: DocSection[] = [
     keywords: ['callback', 'inline', 'button', 'query'],
   },
   {
+    id: 'routing-fallback',
+    title: 'Fallback',
+    group: 'Usage',
+    parent: 'routing',
+    description: 'Catch updates that match no other handler with the [Fallback] attribute.',
+    keywords: ['fallback', 'catch-all', 'unknown', 'default', 'unmatched'],
+  },
+  {
     id: 'context',
     title: 'Context API',
     group: 'Usage',

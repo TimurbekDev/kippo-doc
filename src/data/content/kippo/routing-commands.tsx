@@ -1,4 +1,5 @@
 import { CodeBlock } from '../../../components/docs/CodeBlock';
+import { Callout } from '../../../components/docs/Callout';
 
 const basicCommand = `[Command("start")]
 public async Task Start(Context context)
@@ -11,6 +12,17 @@ public async Task Settings(Context context)
 {
     await context.Reply("Settings menu");
 }`;
+
+const commandMenu = `[Command("start", Description = "Start the bot")]
+public async Task Start(Context context) => await context.Reply("Hi!");
+
+[Command("help", Description = "Show help")]
+public async Task Help(Context context) => await context.Reply("Help...");
+
+// On startup Kippo calls SetMyCommands with:
+//   /start - Start the bot
+//   /help  - Show help
+// Commands without a Description are not added to the menu.`;
 
 const multipleCommands = `[Command("help")]
 [Command("info")]
@@ -44,8 +56,21 @@ export default function RoutingCommands() {
       <CodeBlock code={basicCommand} language="csharp" filename="Basic Command" />
 
       <h2>With description</h2>
-      <p>Add a description for documentation purposes:</p>
+      <p>Add a description to document the command:</p>
       <CodeBlock code={commandWithDescription} language="csharp" filename="Command with Description" />
+
+      <h2>Auto command menu</h2>
+      <p>
+        Every command with a <code>Description</code> is automatically registered to
+        Telegram's <code>/</code> command menu on startup via <code>SetMyCommands</code> —
+        no manual call needed.
+      </p>
+      <CodeBlock code={commandMenu} language="csharp" filename="Command Menu" />
+      <Callout type="info" title="How it works">
+        On startup Kippo collects all commands that declare a <code>Description</code> and
+        sends them to Telegram once. Telegram caps the menu at 100 commands; extras are
+        dropped with a warning. A network failure is logged and does not stop the bot.
+      </Callout>
 
       <h2>Multiple commands</h2>
       <p>One handler can respond to multiple commands:</p>
@@ -73,7 +98,7 @@ export default function RoutingCommands() {
           <tr>
             <td><code>Description</code></td>
             <td>string?</td>
-            <td>Optional description</td>
+            <td>Optional description; when set, the command is added to Telegram's command menu</td>
           </tr>
         </tbody>
       </table>
