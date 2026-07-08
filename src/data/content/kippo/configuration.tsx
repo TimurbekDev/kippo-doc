@@ -1,5 +1,7 @@
+import { Link } from 'react-router-dom';
 import { CodeBlock } from '../../../components/docs/CodeBlock';
 import { Callout } from '../../../components/docs/Callout';
+import { useDocs } from '../../../context/DocsProvider';
 
 const basicConfig = `{
   "Kippo": {
@@ -69,6 +71,13 @@ public async Task Start(Context context, IOptions<BotSettings> options)
     await context.Reply(options.Value.WelcomeMessage);
 }`;
 
+const sessionOptions = `builder.Services.AddKippo<MyHandler>(builder.Configuration, options =>
+{
+    options.Ttl = TimeSpan.FromHours(2);   // evict idle sessions
+    options.MaxSessions = 10_000;          // LRU cap
+    options.SweepInterval = TimeSpan.FromMinutes(5);
+});`;
+
 const loggingConfig = `{
   "Logging": {
     "LogLevel": {
@@ -89,6 +98,7 @@ const projectStructure = `MyTelegramBot/
 └── MyTelegramBot.csproj`;
 
 export default function Configuration() {
+  const { hrefFor } = useDocs();
   return (
     <>
       <h1>Configuration</h1>
@@ -129,6 +139,13 @@ export default function Configuration() {
           <li>appsettings.json</li>
         </ol>
       </Callout>
+
+      <h2>Session options</h2>
+      <p>
+        Configure in-memory session eviction (added in 1.1.0) with the <code>AddKippo</code>{' '}
+        options delegate — see <Link to={hrefFor('sessions')}>Sessions</Link> for details.
+      </p>
+      <CodeBlock code={sessionOptions} language="csharp" filename="Program.cs" />
 
       <h2>Options pattern</h2>
       <p>Use the Options pattern for strongly-typed configuration:</p>

@@ -85,6 +85,38 @@ export default function ApiReference() {
         </tbody>
       </table>
 
+      <h2>Session</h2>
+      <table>
+        <thead>
+          <tr><th>Member</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>State</code></td><td>Current conversation state (string).</td></tr>
+          <tr><td><code>Data</code></td><td>Thread-safe <code>ConcurrentDictionary&lt;string, object&gt;</code>.</td></tr>
+          <tr><td><code>SetState(state)</code> / <code>ClearState()</code></td><td>Set or clear the state.</td></tr>
+          <tr><td><code>InState(state)</code></td><td>Check the current state.</td></tr>
+          <tr><td><code>SetState&lt;TEnum&gt;(state)</code></td><td>Set state from an enum (stored as its name).</td></tr>
+          <tr><td><code>GetState&lt;TEnum&gt;()</code></td><td>Parse the state back into an enum.</td></tr>
+          <tr><td><code>InState&lt;TEnum&gt;(state)</code></td><td>Check state against an enum value.</td></tr>
+          <tr><td><code>Set&lt;T&gt;(key, value)</code></td><td>Store typed data (marks the session dirty).</td></tr>
+          <tr><td><code>Get&lt;T&gt;(key)</code></td><td>Read typed data.</td></tr>
+          <tr><td><code>Remove(key)</code></td><td>Remove a data entry (marks the session dirty).</td></tr>
+        </tbody>
+      </table>
+
+      <h2>SessionOptions</h2>
+      <p>Configured via <code>AddKippo(configuration, options =&gt; ...)</code>.</p>
+      <table>
+        <thead>
+          <tr><th>Property</th><th>Type</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>Ttl</code></td><td>TimeSpan?</td><td>Sliding expiration; idle sessions are evicted. Null = never.</td></tr>
+          <tr><td><code>MaxSessions</code></td><td>int?</td><td>LRU cap on live sessions. Null = unbounded.</td></tr>
+          <tr><td><code>SweepInterval</code></td><td>TimeSpan</td><td>Background purge interval (default 5 min).</td></tr>
+        </tbody>
+      </table>
+
       <h2>ISessionStore</h2>
       <table>
         <thead>

@@ -22,7 +22,8 @@ const features = [
   {
     icon: <Database className="text-green-500" size={22} />,
     title: 'Session Management',
-    description: 'Built-in session storage tracks user state and data across conversations.',
+    description:
+      'Track user state and data across conversations, with typed state helpers and TTL/LRU eviction.',
   },
   {
     icon: <Layers className="text-purple-500" size={22} />,
