@@ -152,6 +152,14 @@ const KIPPO_SECTIONS: DocSection[] = [
     keywords: ['keyboard', 'reply', 'inline', 'buttons', 'builder'],
   },
   {
+    id: 'callback-vault',
+    title: 'Callback Vault',
+    group: 'Usage',
+    icon: 'Vault',
+    description: 'Attach large typed payloads to inline buttons, past Telegram\'s 64-byte callback limit.',
+    keywords: ['callback', 'vault', 'payload', '64 bytes', 'callback_data', 'inline', 'token', 'ICallbackStore'],
+  },
+  {
     id: 'sessions',
     title: 'Sessions',
     group: 'Usage',
@@ -168,6 +176,14 @@ const KIPPO_SECTIONS: DocSection[] = [
     keywords: ['middleware', 'pipeline', 'logging', 'auth', 'rate limit'],
   },
   {
+    id: 'flood-control',
+    title: 'Flood Control',
+    group: 'Usage',
+    icon: 'Gauge',
+    description: 'Survive Telegram\'s 429 rate limits with automatic retry and per-chat throttling.',
+    keywords: ['flood', 'rate limit', '429', 'retry', 'retry_after', 'throttle', 'ThrottlingBotClient'],
+  },
+  {
     id: 'dependency-injection',
     title: 'Dependency Injection',
     group: 'Usage',
@@ -182,6 +198,14 @@ const KIPPO_SECTIONS: DocSection[] = [
     icon: 'Settings',
     description: 'Configure Kippo via appsettings.json and options.',
     keywords: ['configuration', 'appsettings', 'options', 'token'],
+  },
+  {
+    id: 'testing',
+    title: 'Testing',
+    group: 'Usage',
+    icon: 'FlaskConical',
+    description: 'Unit-test handlers with fake updates using TestBot — no bot token or network.',
+    keywords: ['testing', 'test', 'unit test', 'TestBot', 'mock', 'RecordingBotClient', 'xunit'],
   },
   {
     id: 'api-reference',

@@ -12,6 +12,9 @@ import {
   BookOpen,
   MessageSquare,
   History,
+  FlaskConical,
+  Gauge,
+  Vault,
   FileText,
   type LucideIcon,
 } from 'lucide-react';
@@ -30,6 +33,9 @@ const ICONS: Record<string, LucideIcon> = {
   BookOpen,
   MessageSquare,
   History,
+  FlaskConical,
+  Gauge,
+  Vault,
 };
 
 /** Resolve a registry icon name to a rendered Lucide icon (falls back to a doc icon). */
