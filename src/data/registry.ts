@@ -76,8 +76,8 @@ const KIPPO_SECTIONS: DocSection[] = [
     title: 'Overview',
     group: 'Getting Started',
     icon: 'Home',
-    description: 'What Kippo is and why to use it for building Telegram bots in .NET.',
-    keywords: ['intro', 'introduction', 'about', 'features'],
+    description: 'What Kippo is and why to use it for building Telegram bots in C# and .NET.',
+    keywords: ['intro', 'introduction', 'about', 'features', 'telegram bot c#', 'telegram bot dotnet'],
   },
   {
     id: 'installation',
@@ -92,8 +92,8 @@ const KIPPO_SECTIONS: DocSection[] = [
     title: 'Getting Started',
     group: 'Getting Started',
     icon: 'Rocket',
-    description: 'Build and run your first Kippo Telegram bot in under five minutes.',
-    keywords: ['quick start', 'tutorial', 'first bot', 'botfather', 'token'],
+    description: 'Build and run your first Kippo Telegram bot in C# in under five minutes.',
+    keywords: ['quick start', 'tutorial', 'first bot', 'botfather', 'token', 'c# telegram bot tutorial'],
   },
   {
     id: 'routing',

@@ -5,20 +5,80 @@
     <link rel="icon" type="image/svg+xml" href="/kippo-logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0a0a0a" />
-    <title>Kippo - Telegram Bot Framework for .NET</title>
-    <meta name="description" content="A lightweight, attribute-based framework for building Telegram bots in .NET with session management, middleware support, and intuitive routing." />
+
+    <title>Kippo — Telegram Bot Framework for C# &amp; .NET</title>
+    <meta
+      name="description"
+      content="Build Telegram bots in C# and .NET with Kippo — a lightweight, attribute-based framework with routing, sessions, scenes, middleware, webhooks, and testing. Free, open source, MIT."
+    />
+    <meta
+      name="keywords"
+      content="telegram bot C#, telegram bot .NET, telegram bot dotnet, C# telegram bot framework, .NET telegram bot library, ASP.NET Core telegram bot, telegram bot api C#, chatbot dotnet, Telegram.Bot framework"
+    />
+    <meta name="author" content="Kippo" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://kippo.uz/" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Kippo Docs" />
-    <meta property="og:title" content="Kippo - Telegram Bot Framework for .NET" />
-    <meta property="og:description" content="A lightweight, attribute-based framework for building Telegram bots in .NET with session management, middleware, and intuitive routing." />
-    <meta property="og:image" content="/kippo-logo.svg" />
+    <meta property="og:site_name" content="Kippo" />
+    <meta property="og:url" content="https://kippo.uz/" />
+    <meta property="og:title" content="Kippo — Telegram Bot Framework for C# &amp; .NET" />
+    <meta
+      property="og:description"
+      content="Build Telegram bots in C# and .NET with attribute-based routing, sessions, scenes, middleware, and webhooks. Free and open source."
+    />
+    <meta property="og:image" content="https://kippo.uz/kippo-logo.png" />
+    <meta property="og:image:alt" content="Kippo — Telegram bot framework for C# and .NET" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Kippo - Telegram Bot Framework for .NET" />
-    <meta name="twitter:description" content="Build Telegram bots in .NET with attribute-based routing, sessions, and middleware." />
+    <meta name="twitter:title" content="Kippo — Telegram Bot Framework for C# &amp; .NET" />
+    <meta
+      name="twitter:description"
+      content="Build Telegram bots in C# and .NET with attribute-based routing, sessions, scenes, middleware, and webhooks."
+    />
+    <meta name="twitter:image" content="https://kippo.uz/kippo-logo.png" />
+
+    <!-- Structured data: helps Google show a rich software result -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://kippo.uz/#website",
+            "url": "https://kippo.uz/",
+            "name": "Kippo",
+            "description": "Telegram bot framework for C# and .NET.",
+            "inLanguage": "en"
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://kippo.uz/#app",
+            "name": "Kippo",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Cross-platform (.NET 8, 9, 10)",
+            "description": "A lightweight, attribute-based framework for building Telegram bots in C# and .NET with routing, sessions, scenes, middleware, webhooks, and testing.",
+            "url": "https://kippo.uz/",
+            "downloadUrl": "https://www.nuget.org/packages/Kippo/",
+            "softwareVersion": "1.1.4",
+            "programmingLanguage": "C#",
+            "license": "https://opensource.org/licenses/MIT",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+          },
+          {
+            "@type": "SoftwareSourceCode",
+            "@id": "https://kippo.uz/#source",
+            "name": "Kippo",
+            "codeRepository": "https://github.com/TimurbekDev/KippoGramm",
+            "programmingLanguage": "C#",
+            "runtimePlatform": ".NET",
+            "url": "https://kippo.uz/"
+          }
+        ]
+      }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,6 +86,28 @@
   </head>
   <body class="antialiased">
     <div id="root"></div>
+    <!-- Fallback for crawlers/clients without JavaScript. Replaced by the app on load. -->
+    <noscript>
+      <main style="max-width:720px;margin:0 auto;padding:2rem;font-family:system-ui,sans-serif;color:#e4e4e7;background:#09090b">
+        <h1>Kippo — Telegram Bot Framework for C# &amp; .NET</h1>
+        <p>
+          Kippo is a lightweight, attribute-based framework for building Telegram bots in C# and
+          .NET. It ships attribute routing (<code>[Command]</code>, <code>[Text]</code>,
+          <code>[CallbackQuery]</code>), session management, multi-step scenes and conversations,
+          a middleware pipeline, keyboard builders, flood control, webhooks, and first-class unit
+          testing — all native to ASP.NET Core dependency injection.
+        </p>
+        <p>Install with <code>dotnet add package Kippo</code>.</p>
+        <ul>
+          <li><a href="/docs/Kippo/latest/overview">Overview</a></li>
+          <li><a href="/docs/Kippo/latest/getting-started">Getting started</a></li>
+          <li><a href="/docs/Kippo/latest/routing">Routing</a></li>
+          <li><a href="/docs/Kippo/latest/webhooks">Webhooks</a></li>
+          <li><a href="https://www.nuget.org/packages/Kippo/">NuGet package</a></li>
+          <li><a href="https://github.com/TimurbekDev/KippoGramm">GitHub repository</a></li>
+        </ul>
+      </main>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -74,8 +74,8 @@ const docsHome = `/docs/${DEFAULT_PACKAGE.id}/latest/${DEFAULT_PACKAGE.sections[
 export function Home() {
   const { data } = usePackageData(DEFAULT_PACKAGE.nugetId);
   useDocMeta(
-    'Kippo — Telegram Bot Framework for .NET',
-    DEFAULT_PACKAGE.description,
+    'Kippo — Telegram Bot Framework for C# & .NET',
+    'Build Telegram bots in C# and .NET with Kippo — a lightweight, attribute-based framework with routing, sessions, scenes, middleware, webhooks, and testing. Free, open source, MIT.',
   );
 
   const latest = data?.latestStable ?? data?.latest;
@@ -130,16 +130,17 @@ export function Home() {
           </div>
 
           <h1 className="mx-auto max-w-3xl text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-            Build Telegram Bots
+            Telegram Bot Framework
             <br />
             <span className="bg-linear-to-br from-blue-500 to-purple-600 bg-clip-text text-transparent">
-              with Elegance
+              for C#&nbsp;&amp;&nbsp;.NET
             </span>
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg text-zinc-400">
-            {DEFAULT_PACKAGE.description} Attribute-based routing, sessions, middleware, and
-            keyboard builders — all native to ASP.NET Core.
+            Build Telegram bots in C# and .NET with Kippo — a lightweight, attribute-based
+            framework. Routing, sessions, scenes, middleware, webhooks, and keyboard builders,
+            all native to ASP.NET Core.
           </p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
