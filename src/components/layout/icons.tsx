@@ -15,6 +15,7 @@ import {
   FlaskConical,
   Gauge,
   Vault,
+  Workflow,
   FileText,
   type LucideIcon,
 } from 'lucide-react';
@@ -36,6 +37,7 @@ const ICONS: Record<string, LucideIcon> = {
   FlaskConical,
   Gauge,
   Vault,
+  Workflow,
 };
 
 /** Resolve a registry icon name to a rendered Lucide icon (falls back to a doc icon). */

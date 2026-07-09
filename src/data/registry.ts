@@ -168,6 +168,14 @@ const KIPPO_SECTIONS: DocSection[] = [
     keywords: ['session', 'state', 'storage', 'conversation'],
   },
   {
+    id: 'scenes',
+    title: 'Scenes & Conversations',
+    group: 'Usage',
+    icon: 'Workflow',
+    description: 'Write multi-step dialogs as linear code with await ctx.Ask() — resumable and typed.',
+    keywords: ['scene', 'conversation', 'wizard', 'dialog', 'flow', 'ask', 'multi-step', 'form', 'SceneContext'],
+  },
+  {
     id: 'middleware',
     title: 'Middleware',
     group: 'Usage',
