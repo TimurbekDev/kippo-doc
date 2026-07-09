@@ -16,6 +16,7 @@ import {
   Gauge,
   Vault,
   Workflow,
+  Webhook,
   FileText,
   type LucideIcon,
 } from 'lucide-react';
@@ -38,6 +39,7 @@ const ICONS: Record<string, LucideIcon> = {
   Gauge,
   Vault,
   Workflow,
+  Webhook,
 };
 
 /** Resolve a registry icon name to a rendered Lucide icon (falls back to a doc icon). */

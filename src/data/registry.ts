@@ -208,6 +208,14 @@ const KIPPO_SECTIONS: DocSection[] = [
     keywords: ['configuration', 'appsettings', 'options', 'token'],
   },
   {
+    id: 'webhooks',
+    title: 'Webhooks',
+    group: 'Usage',
+    icon: 'Webhook',
+    description: 'Receive updates over HTTP with MapKippoWebhook — production and serverless deployments.',
+    keywords: ['webhook', 'MapKippoWebhook', 'setWebhook', 'http', 'production', 'polling', 'secret token', 'deploy'],
+  },
+  {
     id: 'testing',
     title: 'Testing',
     group: 'Usage',
