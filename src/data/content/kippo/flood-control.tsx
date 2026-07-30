@@ -2,8 +2,6 @@ import { CodeBlock } from '../../../components/docs/CodeBlock';
 import { Callout } from '../../../components/docs/Callout';
 
 const enableFloodControl = `// Program.cs
-using Kippo.Extensions;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddKippo<MyHandler>(

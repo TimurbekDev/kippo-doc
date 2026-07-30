@@ -49,8 +49,7 @@ const storeInterface = `public interface ICallbackStore
     bool TryLoad(string token, out string data);
 }`;
 
-const redisStore = `using Kippo.Callbacks;
-using StackExchange.Redis;
+const redisStore = `using StackExchange.Redis;
 
 public class RedisCallbackStore : ICallbackStore
 {

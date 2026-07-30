@@ -1,10 +1,7 @@
 import { CodeBlock } from '../../../components/docs/CodeBlock';
 import { Callout } from '../../../components/docs/Callout';
 
-const program = `using Kippo.Extensions;
-using Kippo.Middleware;
-
-var builder = WebApplication.CreateBuilder(args);
+const program = `var builder = WebApplication.CreateBuilder(args);
 
 // useLongPolling: false → Kippo won't poll; updates arrive over HTTP instead
 builder.Services.AddKippo<MyBotHandler>(builder.Configuration, useLongPolling: false)

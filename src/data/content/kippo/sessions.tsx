@@ -2,9 +2,6 @@ import { CodeBlock } from '../../../components/docs/CodeBlock';
 import { Callout } from '../../../components/docs/Callout';
 
 const enableSession = `// Program.cs
-using Kippo.Extensions;
-using Kippo.Middleware;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddKippo<MyHandler>(builder.Configuration)
@@ -119,8 +116,7 @@ const sessionInterface = `public interface ISessionStore
     Task<bool> DeleteAsync(long chatId);
 }`;
 
-const redisSessionStorage = `using Kippo.SessionStorage;
-using StackExchange.Redis;
+const redisSessionStorage = `using StackExchange.Redis;
 using System.Text.Json;
 
 public class RedisSessionStorage : ISessionStore

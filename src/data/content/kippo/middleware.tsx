@@ -1,19 +1,14 @@
 import { CodeBlock } from '../../../components/docs/CodeBlock';
 import { Callout } from '../../../components/docs/Callout';
 
-const middlewareInterface = `using Kippo.Contexs;
-
-namespace Kippo.Middleware;
+const middlewareInterface = `namespace Kippo;
 
 public interface IBotMiddleware
 {
     Task InvokeAsync(Context context, Func<Task> next);
 }`;
 
-const registerMiddleware = `using Kippo.Extensions;
-using Kippo.Middleware;
-
-var builder = WebApplication.CreateBuilder(args);
+const registerMiddleware = `var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddKippo<MyHandler>(builder.Configuration)
                 .AddKippoMiddleware<LoggingMiddleware>()

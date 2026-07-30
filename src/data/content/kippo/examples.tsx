@@ -1,11 +1,6 @@
 import { CodeBlock } from '../../../components/docs/CodeBlock';
 
-const completeHandler = `using Kippo.Attribute;
-using Kippo.Contexs;
-using Kippo.Handlers;
-using Kippo.Keyboard;
-
-public class MyHandler : BotUpdateHandler
+const completeHandler = `public class MyHandler : BotUpdateHandler
 {
     [Command("start")]
     public async Task Start(Context context)
@@ -81,10 +76,7 @@ public class MyHandler : BotUpdateHandler
     }
 }`;
 
-const programCs = `using Kippo.Extensions;
-using Kippo.Middleware;
-
-var builder = WebApplication.CreateBuilder(args);
+const programCs = `var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddSingleton<IUserService, UserService>();
 builder.Services.AddKippo<MyHandler>(builder.Configuration)
@@ -94,11 +86,7 @@ builder.Services.AddKippo<MyHandler>(builder.Configuration)
 var app = builder.Build();
 app.Run();`;
 
-const echoBot = `using Kippo.Attribute;
-using Kippo.Contexs;
-using Kippo.Handlers;
-
-public class EchoHandler : BotUpdateHandler
+const echoBot = `public class EchoHandler : BotUpdateHandler
 {
     [Command("start")]
     public async Task Start(Context context)

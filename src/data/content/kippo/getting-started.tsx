@@ -19,12 +19,7 @@ const appsettings = `{
   }
 }`;
 
-const handlerCode = `using Kippo.Attribute;
-using Kippo.Contexs;
-using Kippo.Handlers;
-using Kippo.Keyboard;
-
-public class MyBotHandler : BotUpdateHandler
+const handlerCode = `public class MyBotHandler : BotUpdateHandler
 {
     [Command("start")]
     public async Task Start(Context context)
@@ -50,10 +45,7 @@ public class MyBotHandler : BotUpdateHandler
         => await context.Reply($"You said: {context.Message.Text}");
 }`;
 
-const programCode = `using Kippo.Extensions;
-using Kippo.Middleware;
-
-var builder = WebApplication.CreateBuilder(args);
+const programCode = `var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddKippo<MyBotHandler>(builder.Configuration)
                 .AddKippoMiddleware<SessionMiddleware>();
@@ -105,6 +97,14 @@ export default function GettingStarted() {
             Create <code>MyBotHandler.cs</code> with your bot logic:
           </p>
           <CodeBlock code={handlerCode} language="csharp" filename="MyBotHandler.cs" />
+          <Callout type="info" title="No using directives needed">
+            Kippo's whole API lives in one <code>Kippo</code> namespace, and the package registers{' '}
+            <code>global using Kippo;</code> (plus the <code>Telegram.Bot</code> namespaces) in any
+            project with <code>ImplicitUsings</code> enabled — which <code>dotnet new web</code> sets
+            by default. Opt out with{' '}
+            <code>&lt;KippoImplicitUsings&gt;false&lt;/KippoImplicitUsings&gt;</code> and add{' '}
+            <code>using Kippo;</code> yourself.
+          </Callout>
         </Step>
 
         <Step n={4} title="Register Kippo in Program.cs">

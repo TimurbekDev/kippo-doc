@@ -33,10 +33,7 @@ dotnet user-secrets set "Kippo:BotToken" "YOUR_BOT_TOKEN"
 # List secrets
 dotnet user-secrets list`;
 
-const programCs = `using Kippo.Extensions;
-using Kippo.Middleware;
-
-var builder = WebApplication.CreateBuilder(args);
+const programCs = `var builder = WebApplication.CreateBuilder(args);
 
 // Configuration is automatically loaded from:
 // 1. appsettings.json
