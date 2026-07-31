@@ -2,145 +2,163 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://kippo.uz/</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://kippo.uz/contributors</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://kippo.uz/docs/Kippo/latest/overview</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://kippo.uz/docs/Kippo/latest/installation</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kippo.uz/docs/Kippo/latest/getting-started</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://kippo.uz/docs/Kippo/latest/routing</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kippo.uz/docs/Kippo/latest/routing-commands</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kippo.uz/docs/Kippo/latest/routing-text</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kippo.uz/docs/Kippo/latest/routing-callbacks</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kippo.uz/docs/Kippo/latest/routing-chat-members</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kippo.uz/docs/Kippo/latest/routing-contacts</loc>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kippo.uz/docs/Kippo/latest/routing-fallback</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kippo.uz/docs/Kippo/latest/routing-scenes</loc>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kippo.uz/docs/Kippo/latest/context</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kippo.uz/docs/Kippo/latest/keyboards</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kippo.uz/docs/Kippo/latest/callback-vault</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kippo.uz/docs/Kippo/latest/sessions</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kippo.uz/docs/Kippo/latest/scenes</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kippo.uz/docs/Kippo/latest/middleware</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kippo.uz/docs/Kippo/latest/flood-control</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kippo.uz/docs/Kippo/latest/dependency-injection</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kippo.uz/docs/Kippo/latest/configuration</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kippo.uz/docs/Kippo/latest/webhooks</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kippo.uz/docs/Kippo/latest/testing</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kippo.uz/docs/Kippo/latest/api-reference</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kippo.uz/docs/Kippo/latest/examples</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kippo.uz/docs/Kippo/latest/changelog</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

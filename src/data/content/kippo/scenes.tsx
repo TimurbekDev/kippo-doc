@@ -47,6 +47,44 @@ var size   = await ctx.Ask<Size>("Pick a size (Small/Medium/Large):");  // enum
 
 enum Size { Small, Medium, Large }`;
 
+const enumChoices = `enum Plan
+{
+    [Description("🆓 Free")] Free,
+    [Description("💎 Pro")]  Pro,
+    Enterprise                       // no attribute → the member name is used
+}
+
+// One button per enum member, two buttons per row
+var plan = await ctx.Ask<Plan>("Choose a plan", choices: AskChoices.ForEnum<Plan>().InColumns(2));`;
+
+const customChoices = `// Captions from a delegate instead of attributes
+var role = await ctx.Ask<Role>("Pick a role", choices: AskChoices.ForEnum<Role>(r => r switch
+{
+    Role.Admin => "👑 Admin",
+    _          => "🙂 User"
+}));
+
+// Free-form answers — labels and stored values are independent
+var city = await ctx.Ask("Your city?", AskChoices.Of(("tas", "Tashkent"), ("sam", "Samarkand")));
+
+// Same label and value
+var size = await ctx.Ask("Size?", AskChoices.Of("S", "M", "L").InColumns(3));
+
+// Keep the keyboard on screen after the tap (it is removed by default)
+var mood = await ctx.Ask("How are you?", AskChoices.Of("😀", "😐", "🙁").InColumns(3).Keep());`;
+
+const choicesTesting = `[Fact]
+public async Task Signup_picks_a_plan_by_tapping()
+{
+    var bot = new TestBot<SignupHandler>();
+
+    await bot.SendCommand("signup");
+    await bot.SendText("Timur");
+
+    await bot.TapButtonLabeled("💎 Pro");     // taps the button by its caption
+    Assert.Equal("How old are you?", bot.LastReply?.Text);
+}`;
+
 const cancel = `// A scene runs until it returns. Give users an escape hatch with a command —
 // commands are NOT swallowed by an active scene, so this always works:
 [Command("cancel")]
@@ -137,6 +175,40 @@ export default function Scenes() {
       </p>
       <CodeBlock code={typedAsk} language="csharp" filename="Typed questions" />
 
+      <h2>Button answers</h2>
+      <p>
+        Pass <code>choices</code> to turn a question into an inline keyboard. The tapped button
+        answers the step and is parsed into the same strongly typed value — an enum needs no wiring
+        at all, one button per member:
+      </p>
+      <CodeBlock code={enumChoices} language="csharp" filename="Enum questions" />
+
+      <p>
+        Captions are yours to control: a <code>[Description]</code> attribute, a{' '}
+        <code>Func&lt;TEnum, string&gt;</code>, or explicit value/label pairs for free-form answers.
+        <code>InColumns(n)</code> lays the buttons out and <code>Keep()</code> leaves the keyboard
+        on screen after the tap.
+      </p>
+      <CodeBlock code={customChoices} language="csharp" filename="AskChoices" />
+
+      <Callout type="success" title="Typing still works">
+        A reply that matches a choice's value or label (case-insensitive) — or that simply parses
+        into <code>T</code> — is accepted exactly like a tap, so users are never forced onto the
+        keyboard.
+      </Callout>
+
+      <Callout type="info" title="Stale keyboards can't corrupt the dialog">
+        Every keyboard is stamped with the step it answers. Tapping a button from an earlier
+        question re-asks <em>that</em> question instead of answering the current one, and an
+        accepted tap removes the keyboard so the same answer cannot be submitted twice.
+      </Callout>
+
+      <p>
+        In tests, answer by caption with <code>TapButtonLabeled</code> — no hand-written callback
+        data:
+      </p>
+      <CodeBlock code={choicesTesting} language="csharp" filename="Testing button answers" />
+
       <h2>Injecting services</h2>
       <p>
         Scene methods bind parameters the same way handlers do: <code>SceneContext</code>,{' '}
@@ -147,8 +219,9 @@ export default function Scenes() {
 
       <h2>Cancelling</h2>
       <p>
-        A scene only intercepts plain text — commands still reach their handlers, so users can always
-        type a command to break out. Use <code>context.InScene</code> and{' '}
+        A scene only intercepts plain text and the buttons its own <code>Ask</code> prompts rendered
+        — commands and your other <code>[CallbackQuery]</code> handlers still run, so users can
+        always type a command to break out. Use <code>context.InScene</code> and{' '}
         <code>context.ExitScene()</code> to implement an explicit cancel:
       </p>
       <CodeBlock code={cancel} language="csharp" filename="Cancelling a scene" />
@@ -178,6 +251,7 @@ export default function Scenes() {
       <ul>
         <li>Give every scene a <code>/cancel</code> escape hatch</li>
         <li>Use <code>Ask&lt;T&gt;</code> with a helpful <code>retry</code> message for validated input</li>
+        <li>Offer <code>choices</code> whenever the answer set is fixed — fewer typos, no retry loop</li>
         <li>Do irreversible work after the last <code>Ask</code>, not between steps</li>
         <li>Back sessions with Redis or a database so in-progress scenes survive restarts</li>
         <li>Test the whole flow with <code>TestBot</code> — one <code>SendText</code> per answer</li>

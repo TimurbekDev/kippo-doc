@@ -1,4 +1,4 @@
-import { useMemo, useState, type ReactNode } from 'react';
+import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronDown, ChevronRight, ExternalLink, Search, X, Github } from 'lucide-react';
 import { useDocs } from '../../context/DocsProvider';
@@ -164,6 +164,12 @@ function NavItem({
   const childActive = hasChildren && children_.some((c) => c.id === activeId);
   const [open, setOpen] = useState(active || childActive);
 
+  // Landing on the section (or one of its children) — from a link, search, or the URL —
+  // reveals its sub-pages; the chevron stays available to collapse them again.
+  useEffect(() => {
+    if (active || childActive) setOpen(true);
+  }, [active, childActive]);
+
   return (
     <li>
       <div
@@ -175,7 +181,11 @@ function NavItem({
       >
         <Link
           to={hrefFor(item.id)}
-          onClick={onClose}
+          onClick={() => {
+            // Opening a parent section also opens its list — no need to hunt for the chevron.
+            if (hasChildren) setOpen(true);
+            onClose();
+          }}
           className={`flex flex-1 items-center gap-3 px-3 py-2 text-sm font-medium ${
             active ? 'text-blue-400' : 'text-zinc-400 group-hover:text-white'
           }`}

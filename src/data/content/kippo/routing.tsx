@@ -1,5 +1,53 @@
+import { Link } from 'react-router-dom';
 import { CodeBlock } from '../../../components/docs/CodeBlock';
 import { Callout } from '../../../components/docs/Callout';
+import { useDocs } from '../../../context/DocsProvider';
+
+/** Every routing attribute Kippo ships, in dispatch order. */
+const ATTRIBUTES = [
+  {
+    name: '[Command]',
+    section: 'routing-commands',
+    color: 'text-blue-400',
+    summary: 'Handle bot commands starting with /',
+  },
+  {
+    name: '[Text]',
+    section: 'routing-text',
+    color: 'text-green-400',
+    summary: 'Handle text messages with pattern matching',
+  },
+  {
+    name: '[CallbackQuery]',
+    section: 'routing-callbacks',
+    color: 'text-purple-400',
+    summary: 'Handle inline button clicks, with typed templates',
+  },
+  {
+    name: '[ChatMember]',
+    section: 'routing-chat-members',
+    color: 'text-amber-400',
+    summary: 'Handle member joins, leaves, and status changes',
+  },
+  {
+    name: '[Contact]',
+    section: 'routing-contacts',
+    color: 'text-pink-400',
+    summary: 'Handle shared phone-number contacts',
+  },
+  {
+    name: '[Scene]',
+    section: 'routing-scenes',
+    color: 'text-cyan-400',
+    summary: 'Route a whole multi-step dialog to one method',
+  },
+  {
+    name: '[Fallback]',
+    section: 'routing-fallback',
+    color: 'text-orange-400',
+    summary: 'Catch updates that matched no other handler',
+  },
+];
 
 const commandExample = `[Command("start")]
 public async Task Start(Context context)
@@ -84,6 +132,30 @@ public async Task OnContact(Context context, Contact contact)
     await context.Reply($"Thanks! Saved {contact.PhoneNumber}");
 }`;
 
+const sceneExample = `// Enter the scene from any handler…
+[Command("signup")]
+public Task Start(Context context)
+{
+    context.EnterScene("signup");
+    return Task.CompletedTask;
+}
+
+// …and write the dialog as ordinary sequential code
+[Scene("signup")]
+public async Task Signup(SceneContext ctx)
+{
+    var name = await ctx.Ask("What's your name?");
+    var age  = await ctx.Ask<int>("How old are you?", retry: "Please send a number 🙂");
+
+    await ctx.Reply($"Welcome {name}, age {age}! ✅");
+}`;
+
+const fallbackExample = `[Fallback]
+public async Task Unknown(Context context)
+{
+    await context.Reply("I don't understand. Try /help");
+}`;
+
 const multipleAttributesExample = `// Handler responds to multiple triggers
 [Command("cancel")]
 [Text(Pattern = "Cancel")]
@@ -95,6 +167,8 @@ public async Task Cancel(Context context)
 }`;
 
 export default function Routing() {
+  const { hrefFor } = useDocs();
+
   return (
     <>
       <h1>Routing</h1>
@@ -104,26 +178,16 @@ export default function Routing() {
       </p>
 
       <div className="my-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        <div className="rounded-lg border border-zinc-700 bg-zinc-800/50 p-4">
-          <h3 className="mb-1 font-mono font-semibold text-blue-400">[Command]</h3>
-          <p className="text-sm text-zinc-400">Handle bot commands starting with /</p>
-        </div>
-        <div className="rounded-lg border border-zinc-700 bg-zinc-800/50 p-4">
-          <h3 className="mb-1 font-mono font-semibold text-green-400">[Text]</h3>
-          <p className="text-sm text-zinc-400">Handle text messages with pattern matching</p>
-        </div>
-        <div className="rounded-lg border border-zinc-700 bg-zinc-800/50 p-4">
-          <h3 className="mb-1 font-mono font-semibold text-purple-400">[CallbackQuery]</h3>
-          <p className="text-sm text-zinc-400">Handle inline button clicks, with typed templates</p>
-        </div>
-        <div className="rounded-lg border border-zinc-700 bg-zinc-800/50 p-4">
-          <h3 className="mb-1 font-mono font-semibold text-amber-400">[ChatMember]</h3>
-          <p className="text-sm text-zinc-400">Handle member joins, leaves, and status changes</p>
-        </div>
-        <div className="rounded-lg border border-zinc-700 bg-zinc-800/50 p-4">
-          <h3 className="mb-1 font-mono font-semibold text-pink-400">[Contact]</h3>
-          <p className="text-sm text-zinc-400">Handle shared phone-number contacts</p>
-        </div>
+        {ATTRIBUTES.map((attr) => (
+          <Link
+            key={attr.name}
+            to={hrefFor(attr.section)}
+            className="rounded-lg border border-zinc-700 bg-zinc-800/50 p-4 no-underline transition-colors hover:border-zinc-600 hover:bg-zinc-800"
+          >
+            <h3 className={`mb-1 font-mono font-semibold ${attr.color}`}>{attr.name}</h3>
+            <p className="text-sm text-zinc-400">{attr.summary}</p>
+          </Link>
+        ))}
       </div>
 
       <h2>[Command] Attribute</h2>
@@ -169,9 +233,42 @@ export default function Routing() {
       <p>Handle contact messages, such as a user sharing their phone number:</p>
       <CodeBlock code={contactExample} language="csharp" filename="Contact Handlers" />
 
+      <h2>[Scene] Attribute</h2>
+      <p>
+        Route an entire multi-step dialog to one method. The scene runs top-to-bottom, pausing at
+        each <code>await ctx.Ask(...)</code>, and intercepts the user's replies until it finishes:
+      </p>
+      <CodeBlock code={sceneExample} language="csharp" filename="Scene Handlers" />
+
+      <h2>[Fallback] Attribute</h2>
+      <p>
+        A single catch-all, invoked only when no other handler matched the update — the place to
+        answer unknown commands or expired buttons:
+      </p>
+      <CodeBlock code={fallbackExample} language="csharp" filename="Fallback Handler" />
+
       <h2>Multiple Attributes</h2>
       <p>A single handler can respond to multiple triggers:</p>
       <CodeBlock code={multipleAttributesExample} language="csharp" filename="Multiple Triggers" />
+
+      <h2>Dispatch order</h2>
+      <p>Every update walks the same path, first match wins:</p>
+      <ol>
+        <li>
+          An active <Link to={hrefFor('routing-scenes')}>scene</Link> takes plain text and its own
+          <code>Ask</code> buttons
+        </li>
+        <li><code>[Command]</code> — messages starting with <code>/</code></li>
+        <li><code>[CallbackQuery]</code> — inline button presses, in declaration order</li>
+        <li><code>[Contact]</code> — messages carrying a shared contact</li>
+        <li><code>[Text]</code> — plain text, most specific handler first</li>
+        <li><code>[ChatMember]</code> — membership updates</li>
+        <li><code>[Fallback]</code> — everything left over</li>
+      </ol>
+      <p>
+        Middleware wraps the whole sequence, so logging, auth and rate limiting apply to every one
+        of these routes.
+      </p>
     </>
   );
 }
