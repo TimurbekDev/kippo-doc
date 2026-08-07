@@ -42,6 +42,12 @@ const ATTRIBUTES = [
     summary: 'Route a whole multi-step dialog to one method',
   },
   {
+    name: '[BusinessMessage]',
+    section: 'telegram-business',
+    color: 'text-teal-400',
+    summary: 'Answer customers of a connected Telegram Business account',
+  },
+  {
     name: '[Fallback]',
     section: 'routing-fallback',
     color: 'text-orange-400',
@@ -150,6 +156,19 @@ public async Task Signup(SceneContext ctx)
     await ctx.Reply($"Welcome {name}, age {age}! ✅");
 }`;
 
+const businessExample = `// A customer wrote to a Telegram Business account your bot is connected to.
+// The reply is sent on behalf of that business account.
+[BusinessMessage(Contains = "price")]
+public async Task Price(Context context)
+{
+    await context.Reply("Our price list: ...");
+}
+
+// The owner connected (or disconnected) the bot
+[BusinessConnection(BusinessConnectionEvent.Connected)]
+public Task Connected(BusinessConnection connection)
+    => store.SaveAsync(connection.Id, connection.UserChatId);`;
+
 const fallbackExample = `[Fallback]
 public async Task Unknown(Context context)
 {
@@ -240,6 +259,19 @@ export default function Routing() {
       </p>
       <CodeBlock code={sceneExample} language="csharp" filename="Scene Handlers" />
 
+      <h2>[BusinessMessage] Attribute</h2>
+      <p>
+        Handle the chats of a Telegram Business account that connected your bot.{' '}
+        <code>[BusinessMessage]</code> takes the same filters as <code>[Text]</code> and matches the
+        customer's side by default; <code>[BusinessConnection]</code> and{' '}
+        <code>[BusinessMessagesDeleted]</code> cover the connection lifecycle and deletions:
+      </p>
+      <CodeBlock code={businessExample} language="csharp" filename="Business Handlers" />
+      <p>
+        See <Link to={hrefFor('telegram-business')}>Telegram Business</Link> for rights, message
+        direction, and replying on behalf of the account.
+      </p>
+
       <h2>[Fallback] Attribute</h2>
       <p>
         A single catch-all, invoked only when no other handler matched the update — the place to
@@ -262,6 +294,10 @@ export default function Routing() {
         <li><code>[CallbackQuery]</code> — inline button presses, in declaration order</li>
         <li><code>[Contact]</code> — messages carrying a shared contact</li>
         <li><code>[Text]</code> — plain text, most specific handler first</li>
+        <li>
+          <code>[BusinessMessage]</code>, <code>[BusinessConnection]</code>,{' '}
+          <code>[BusinessMessagesDeleted]</code> — updates from connected business accounts
+        </li>
         <li><code>[ChatMember]</code> — membership updates</li>
         <li><code>[Fallback]</code> — everything left over</li>
       </ol>

@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import { CodeBlock } from '../../../components/docs/CodeBlock';
+import { useDocs } from '../../../context/DocsProvider';
 
 const contextOverview = `public async Task MyHandler(Context context)
 {
@@ -114,6 +116,8 @@ public async Task SendPhoto(Context context)
 }`;
 
 export default function ContextPage() {
+  const { hrefFor } = useDocs();
+
   return (
     <>
       <h1>Context API</h1>
@@ -140,6 +144,9 @@ export default function ContextPage() {
           <tr><td><code>ChatId</code></td><td>long</td><td>Current chat ID (auto-detected)</td></tr>
           <tr><td><code>Message</code></td><td>MessageContext</td><td>Message context with Text property</td></tr>
           <tr><td><code>Callback</code></td><td>CallbackContext</td><td>Callback context with Answer() and Data</td></tr>
+          <tr><td><code>Business</code></td><td>BusinessContext</td><td>Telegram Business connection, rights, and payloads</td></tr>
+          <tr><td><code>BusinessConnectionId</code></td><td>string?</td><td>Connection this update arrived on; null in ordinary chats</td></tr>
+          <tr><td><code>IsBusiness</code></td><td>bool</td><td>Whether the update came through a business account</td></tr>
           <tr><td><code>Session</code></td><td>Session?</td><td>User session (with SessionMiddleware)</td></tr>
           <tr><td><code>SessionStore</code></td><td>ISessionStore</td><td>Session storage interface</td></tr>
           <tr><td><code>CancellationToken</code></td><td>CancellationToken</td><td>Token for async operations</td></tr>
@@ -160,6 +167,12 @@ export default function ContextPage() {
         language="csharp"
         filename="Signature"
       />
+      <p>
+        In a <Link to={hrefFor('telegram-business')}>Telegram Business</Link> chat,{' '}
+        <code>Reply()</code> is sent on behalf of the
+        connected business account — Kippo passes the update's{' '}
+        <code>business_connection_id</code> for you.
+      </p>
 
       <h2>Callback context</h2>
       <p>Handle inline keyboard button clicks with the Callback context:</p>

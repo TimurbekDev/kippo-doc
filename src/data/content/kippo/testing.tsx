@@ -59,7 +59,13 @@ await bot.SendText("hello");                 // plain text message
 await bot.SendCommand("help");               // "/help"
 await bot.SendCommand("echo", "hi there");   // "/echo hi there"
 await bot.TapButton("product:42:buy");       // inline button tap (callback query)
-await bot.SendContact("+998901234567", "Timur");`;
+await bot.SendContact("+998901234567", "Timur");
+
+// Telegram Business chats
+await bot.SendBusinessConnection(isEnabled: true);          // owner connects the bot
+await bot.SendBusinessMessage("what is the price?");        // a customer writes
+await bot.SendBusinessMessageFromOwner("I'll take over");   // the owner writes
+await bot.SendBusinessMessagesDeleted(new[] { 11, 12 });    // messages removed`;
 
 const inspecting = `// The most recent text message the bot sent
 SendMessageRequest? reply = bot.LastReply;
@@ -140,6 +146,14 @@ export default function Testing() {
           <p className="text-sm text-zinc-400">
             Fires a <code>CallbackQuery</code>, routing to <code>[CallbackQuery]</code> handlers —
             including vaulted <code>.Payload(...)</code> buttons, rebound to their typed parameter.
+          </p>
+        </div>
+        <div className="rounded-lg border border-zinc-800 bg-zinc-900/50 p-4">
+          <h3 className="mb-2 font-semibold text-teal-400">SendBusiness*</h3>
+          <p className="text-sm text-zinc-400">
+            Plays both sides of a Telegram Business chat. Replies carry the connection id, so{' '}
+            <code>bot.LastReply.BusinessConnectionId</code> proves the bot answered as the business
+            account.
           </p>
         </div>
       </div>

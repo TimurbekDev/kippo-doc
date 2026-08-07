@@ -200,6 +200,14 @@ const KIPPO_SECTIONS: DocSection[] = [
     keywords: ['scene', 'conversation', 'wizard', 'dialog', 'flow', 'ask', 'multi-step', 'form', 'SceneContext', 'AskChoices', 'buttons', 'enum buttons', 'inline keyboard question'],
   },
   {
+    id: 'telegram-business',
+    title: 'Telegram Business',
+    group: 'Usage',
+    icon: 'Briefcase',
+    description: 'Answer customers of a connected Telegram Business account with [BusinessMessage] and [BusinessConnection].',
+    keywords: ['business', 'telegram business', 'BusinessMessage', 'BusinessConnection', 'BusinessMessagesDeleted', 'business_connection_id', 'auto reply', 'customer', 'chatbot for business account', 'deleted messages'],
+  },
+  {
     id: 'middleware',
     title: 'Middleware',
     group: 'Usage',

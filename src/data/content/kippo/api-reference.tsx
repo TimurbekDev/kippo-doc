@@ -48,6 +48,25 @@ export default function ApiReference() {
             <td>Marks a multi-step dialog method; entered with <code>context.EnterScene(name)</code>.</td>
           </tr>
           <tr>
+            <td><code>[BusinessMessage]</code></td>
+            <td>Pattern?, Contains?, Regex?, State?, From?, IncludeEdited?</td>
+            <td>
+              Handles messages in the chats of a connected Telegram Business account. Matches the
+              customer's side unless <code>From</code> is <code>BusinessSender.Owner</code> /{' '}
+              <code>Any</code>.
+            </td>
+          </tr>
+          <tr>
+            <td><code>[BusinessConnection]</code></td>
+            <td>event? (<code>Any</code>, <code>Connected</code>, <code>Disconnected</code>)</td>
+            <td>Handles a business account connecting to, or disconnecting from, the bot.</td>
+          </tr>
+          <tr>
+            <td><code>[BusinessMessagesDeleted]</code></td>
+            <td>—</td>
+            <td>Handles messages deleted from a business account's chat.</td>
+          </tr>
+          <tr>
             <td><code>[Fallback]</code></td>
             <td>—</td>
             <td>Catch-all handler for updates that matched nothing else. One per bot.</td>
@@ -65,10 +84,12 @@ export default function ApiReference() {
           <tr><td><code>Context</code></td><td>The Kippo update context.</td></tr>
           <tr><td><code>SceneContext</code></td><td>The scene context (<code>[Scene]</code> methods).</td></tr>
           <tr><td><code>Update</code></td><td>The raw Telegram update.</td></tr>
-          <tr><td><code>Message</code></td><td><code>update.Message</code>.</td></tr>
+          <tr><td><code>Message</code></td><td><code>update.Message</code>, or the business / edited message the update carries.</td></tr>
           <tr><td><code>CallbackQuery</code></td><td><code>update.CallbackQuery</code>.</td></tr>
           <tr><td><code>ChatMemberUpdated</code></td><td><code>update.ChatMember</code> or <code>update.MyChatMember</code>.</td></tr>
-          <tr><td><code>Contact</code></td><td><code>update.Message.Contact</code>.</td></tr>
+          <tr><td><code>Contact</code></td><td>The contact shared in the update's message.</td></tr>
+          <tr><td><code>BusinessConnection</code></td><td><code>update.BusinessConnection</code>.</td></tr>
+          <tr><td><code>BusinessMessagesDeleted</code></td><td><code>update.DeletedBusinessMessages</code>.</td></tr>
           <tr><td><code>ITelegramBotClient</code></td><td>The bot client.</td></tr>
           <tr><td><code>CancellationToken</code></td><td>The update's cancellation token.</td></tr>
           <tr><td>named parameter</td><td>A <code>{'{placeholder}'}</code> from the callback template, type-converted.</td></tr>
@@ -91,10 +112,13 @@ export default function ApiReference() {
           <tr><td><code>ChatId</code></td><td>long</td><td>Current chat id.</td></tr>
           <tr><td><code>Message</code></td><td>MessageContext</td><td>Message text and metadata.</td></tr>
           <tr><td><code>Callback</code></td><td>CallbackContext</td><td><code>Data</code> and <code>Answer(...)</code>.</td></tr>
+          <tr><td><code>Business</code></td><td>BusinessContext</td><td>Connection, granted rights and business payloads.</td></tr>
+          <tr><td><code>BusinessConnectionId</code></td><td>string?</td><td>The business connection this update arrived on, if any.</td></tr>
+          <tr><td><code>IsBusiness</code></td><td>bool</td><td>Whether the update came through a business account.</td></tr>
           <tr><td><code>Session</code></td><td>Session</td><td>Per-user session (with SessionMiddleware); throws if none is attached.</td></tr>
           <tr><td><code>HasSession</code></td><td>bool</td><td>Whether a session is attached to this update.</td></tr>
           <tr><td><code>Items</code></td><td>IDictionary&lt;string, object?&gt;</td><td>Per-update scratch space shared with middleware.</td></tr>
-          <tr><td><code>Reply(text, markup?, parseMode?)</code></td><td>Task</td><td>Send a message to the current chat.</td></tr>
+          <tr><td><code>Reply(text, markup?, parseMode?)</code></td><td>Task</td><td>Send a message to the current chat — on behalf of the business account in a business chat.</td></tr>
           <tr><td><code>Inline()</code></td><td>InlineKeyboardBuilder</td><td>Keyboard builder bound to the callback vault.</td></tr>
           <tr><td><code>EnterScene(name)</code></td><td>void</td><td>Start a <code>[Scene]</code> dialog; its first prompt is sent immediately.</td></tr>
           <tr><td><code>ExitScene()</code></td><td>void</td><td>Leave the active scene, if any.</td></tr>
@@ -147,6 +171,27 @@ export default function ApiReference() {
           </tr>
           <tr><td><code>.InColumns(n)</code></td><td>Buttons per row (default 1).</td></tr>
           <tr><td><code>.Keep()</code></td><td>Leave the keyboard in place after a tap (removed by default).</td></tr>
+        </tbody>
+      </table>
+
+      <h2>BusinessContext</h2>
+      <p>
+        Reached through <code>context.Business</code> in Telegram Business handlers.
+      </p>
+      <table>
+        <thead>
+          <tr><th>Member</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>ConnectionId</code></td><td>The connection id; throws when the update is not a business one.</td></tr>
+          <tr><td><code>Connection</code></td><td>The <code>BusinessConnection</code> payload.</td></tr>
+          <tr><td><code>Message</code></td><td>The business message (new or edited).</td></tr>
+          <tr><td><code>DeletedMessages</code></td><td>The <code>BusinessMessagesDeleted</code> payload.</td></tr>
+          <tr><td><code>Rights</code></td><td><code>BusinessBotRights?</code> granted by the account owner.</td></tr>
+          <tr><td><code>CanReply</code></td><td>Whether the bot may answer the account's customers.</td></tr>
+          <tr><td><code>IsEnabled</code></td><td>Whether the connection update reports an active connection.</td></tr>
+          <tr><td><code>FromOwner</code></td><td>Whether the owner, not the customer, wrote the message.</td></tr>
+          <tr><td><code>IsBusiness</code></td><td>Same as <code>context.IsBusiness</code>.</td></tr>
         </tbody>
       </table>
 

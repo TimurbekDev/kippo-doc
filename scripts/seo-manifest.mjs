@@ -29,6 +29,7 @@ export const SECTIONS = [
   { id: 'callback-vault', title: 'Callback Vault', description: "Attach large typed payloads to inline buttons, past Telegram's 64-byte callback limit." },
   { id: 'sessions', title: 'Sessions', description: 'Track per-user state and data across messages with built-in sessions.' },
   { id: 'scenes', title: 'Scenes & Conversations', description: 'Write multi-step Telegram dialogs as linear C# code with await ctx.Ask().' },
+  { id: 'telegram-business', title: 'Telegram Business', description: 'Answer customers of a connected Telegram Business account with [BusinessMessage] and [BusinessConnection] in C#.' },
   { id: 'middleware', title: 'Middleware', description: 'Add cross-cutting behavior with the middleware pipeline.' },
   { id: 'flood-control', title: 'Flood Control', description: "Survive Telegram's 429 rate limits with automatic retry and per-chat throttling." },
   { id: 'dependency-injection', title: 'Dependency Injection', description: 'Inject services into handlers via ASP.NET Core dependency injection.' },

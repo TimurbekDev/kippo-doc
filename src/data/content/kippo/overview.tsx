@@ -6,6 +6,7 @@ import {
   Keyboard,
   Rocket,
   Package,
+  Briefcase,
   ArrowRight,
 } from 'lucide-react';
 import { CodeBlock } from '../../../components/docs/CodeBlock';
@@ -34,6 +35,12 @@ const features = [
     icon: <Keyboard className="text-blue-500" size={22} />,
     title: 'Keyboard Builders',
     description: 'Fluent API for reply and inline keyboards with minimal code.',
+  },
+  {
+    icon: <Briefcase className="text-teal-500" size={22} />,
+    title: 'Telegram Business',
+    description:
+      'Answer customers of a connected Business account with [BusinessMessage] — replies go out as the account.',
   },
   {
     icon: <Rocket className="text-red-500" size={22} />,
